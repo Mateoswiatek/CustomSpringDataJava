@@ -2,7 +2,7 @@ package org.example;
 
 import org.example.adnotations.databasecreator.DataBaseCreator;
 
-import java.util.List;
+import org.example.adnotations.databaserepository.RepositoryGenerator;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,5 +20,23 @@ public class Main {
 
         DataBaseCreator creator = new DataBaseCreator();
         System.out.println(creator.createTable(User.class));
+
+
+        try {
+            MyInterfaceTest myInterface = RepositoryGenerator.generateRepositoryImpl(MyInterfaceTest.class);
+            myInterface.method1(); // Wywołanie wygenerowanej implementacji
+            System.out.println(myInterface.method2()); // Wywołanie wygenerowanej implementacji
+            System.out.println(myInterface.method3());
+        } catch (IllegalAccessException | InstantiationException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            RepositoryGenerator.generateRepositoryImpToFilel(MyInterfaceTest.class, "MyInterfaceImpl.java");
+            System.out.println("Udalo sie do MyInterfaceImpl.java");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
+

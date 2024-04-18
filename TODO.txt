@@ -1,2 +1,21 @@
+Zabezpieczenia przed niepoprawnymi nazwami - strim prawo lewo, spacje na _, wywalenie nielegalnych znaków + tolower
+
+Jednak przyda się mapowanie również nazw Pól na nazwy kolumn - np przy dodawaniu rekordów.
+
 Doczytanie o refleksji - modyfikowanie w trakcie trwania programu,pobrać listę pól zadeklarowanych w klasie,wartości,
 amiana (jeśli to są prywatne).
+
+Zabawa z kluczem głownym, tak aby moja adnotacja wymagała aby był klucz główny
+Dorobienie generowania warunku na klucz główny. jak na razie prosty, potem na złożone.
+
+Opcja dodawania kluczy obcych.
+
+Dodanie ograniczeń typu min,max,
+customowe ograniczenia - po prostu jako String do tabel jak i do pól.
+
+RepositoryGenerator[11:13] //TODO może abstrakcyjne by się udało??
+
+
+Ejjj, albo zroibć skrypt, który generuje pliki typu podsumowanie,
+gdzie są jakie TODO
+albo inne tego typu rzeczy

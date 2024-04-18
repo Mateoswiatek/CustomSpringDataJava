@@ -2,9 +2,9 @@ package org.example;
 
 
 import org.example.adnotations.databaserepository.AbstractRepository;
-import org.example.adnotations.databaserepository.AnnRepository;
+import org.example.adnotations.databaserepository.RepoAutoImpl;
 
-@AnnRepository
+@RepoAutoImpl
 public interface UserRepository extends AbstractRepository<User, Long> {
     User findAll();
 }

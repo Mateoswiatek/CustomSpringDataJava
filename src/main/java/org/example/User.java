@@ -9,9 +9,9 @@ import org.example.adnotations.databasecreator.DatabaseTable;
 public class User {
     @DatabaseField(columnName = "id")
     private Long id;
-    @DatabaseField(columnName = "user_name")
+    @DatabaseField(columnName = "user_NAME")
     private String name;
-    @DatabaseField(columnName = "user_surname")
+    @DatabaseField(columnName = "user_surname", columnType = "VARCHAR(4000)")
     private String surname;
     private int age;
     public User(String name, int age) {
