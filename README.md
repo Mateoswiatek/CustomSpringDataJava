@@ -1,9 +1,6 @@
-Konwencja nazewnicza:
+Fajna zabawa się zapowiada ;)
 
-SELECT = find
-INSERT = add
-count
-unique
+Konwencja nazewnicza:
 
 
 |       SQL       |   Code   |
