@@ -1,0 +1,2 @@
+Doczytanie o refleksji - modyfikowanie w trakcie trwania programu,pobrać listę pól zadeklarowanych w klasie,wartości,
+amiana (jeśli to są prywatne).
