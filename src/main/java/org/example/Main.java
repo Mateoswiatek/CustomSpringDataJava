@@ -1,12 +1,6 @@
 package org.example;
 
-
-import org.example.adnotations.DataBaseCreator;
-import org.example.adnotations.DatabaseField;
-
-import java.lang.reflect.Field;
-
-
+import org.example.adnotations.databasecreator.DataBaseCreator;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,6 +16,6 @@ public class Main {
 //        }
 
         DataBaseCreator creator = new DataBaseCreator();
-        creator.createTable(User.class);
+        System.out.println(creator.createTable(User.class));
     }
 }

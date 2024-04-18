@@ -1,8 +1,8 @@
 package org.example;
 
 import lombok.Data;
-import org.example.adnotations.DatabaseField;
-import org.example.adnotations.DatabaseTable;
+import org.example.adnotations.databasecreator.DatabaseField;
+import org.example.adnotations.databasecreator.DatabaseTable;
 
 @Data
 @DatabaseTable(keyColumn = "id")

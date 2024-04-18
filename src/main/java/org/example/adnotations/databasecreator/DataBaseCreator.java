@@ -1,6 +1,10 @@
-package org.example.adnotations;
+package org.example.adnotations.databasecreator;
+
+import org.example.adnotations.Controller;
+import org.example.adnotations.EntityProperties;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class DataBaseCreator {
@@ -20,29 +24,30 @@ public class DataBaseCreator {
     }
 
     private String tableName;
+    private EntityProperties entityProperties;
 
-    public void createTable(Class myClass) {
+    public String createTable(Class<?> myClass) {
+        Controller controller = Controller.getInstance();
+        if(controller.containsEntity(myClass)) {return "XD";}
+        entityProperties = new EntityProperties();
+
         if(!myClass.isAnnotationPresent(DatabaseTable.class)){ throw new RuntimeException("Klasa nie ma adnotacji"); }
-        DatabaseTable databaseTable = (DatabaseTable) myClass.getAnnotation(DatabaseTable.class);
+        DatabaseTable databaseTable = myClass.getAnnotation(DatabaseTable.class);
         tableName = databaseTable.name().isEmpty() ? myClass.getSimpleName().toLowerCase() : databaseTable.name();
+        entityProperties.setTableName(tableName);
+
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("CREATE TABLE ").append(tableName).append(" (\n");
 
-        for(Field field : myClass.getDeclaredFields()){
-            if(field.isAnnotationPresent(DatabaseField.class)) {
-                stringBuilder.append(createTableColumn(field));
-            }
-        }
+        Arrays.stream(myClass.getDeclaredFields())
+                .filter(x -> x.isAnnotationPresent(DatabaseField.class))
+                .forEach(x -> stringBuilder.append(createTableColumn(x)));
 
 
-        if (!stringBuilder.isEmpty()) {
-            int length = stringBuilder.length();
-            stringBuilder.deleteCharAt( length- 1);
-            stringBuilder.deleteCharAt(length - 2);
-        }
+        stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
         stringBuilder.append("\n)");
-        String out = stringBuilder.toString();
-        System.out.println(out);
+
+        return stringBuilder.toString();
     }
 
     private String createTableColumn(Field field){
@@ -51,7 +56,6 @@ public class DataBaseCreator {
     }
 
     public String addColumn(DatabaseField databaseField) {
-
         System.out.println("Column name: " + databaseField.columnName()
                 + " | Clumn type: " + databaseField.columnType());
 
