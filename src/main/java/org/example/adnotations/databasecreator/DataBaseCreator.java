@@ -10,13 +10,9 @@ public class DataBaseCreator {
         Controller controller = Controller.getInstance();
         EntityProperties entityProperties = controller.containsEntity(myClass) ? controller.getEntity(myClass) : controller.addEntity(myClass);
 
-        StringBuilder stringBuilder = new StringBuilder();
-
-        stringBuilder.append("CREATE TABLE ").append(entityProperties.getTableName()).append(" (\n");
-
-        stringBuilder.append(createTableColumn(entityProperties));
-        stringBuilder.append(");\n");
-        return stringBuilder.toString();
+        return "CREATE TABLE " + entityProperties.getTableName() + " (\n" +
+                createTableColumn(entityProperties) +
+                ");\n";
     }
 
 

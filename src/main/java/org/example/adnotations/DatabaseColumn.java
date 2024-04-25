@@ -1,6 +1,5 @@
 package org.example.adnotations;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data

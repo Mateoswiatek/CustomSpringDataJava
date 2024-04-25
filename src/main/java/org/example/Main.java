@@ -21,18 +21,18 @@ public class Main {
         DataBaseCreator creator = new DataBaseCreator();
         System.out.println(creator.createTable(User.class));
 
+//
+//        try {
+//            UserRepositoryTest myInterface = RepositoryGenerator.generateRepositoryImpl(UserRepositoryTest.class);
+//            myInterface.method1(); // Wywołanie wygenerowanej implementacji
+//            System.out.println(myInterface.method2()); // Wywołanie wygenerowanej implementacji
+//            System.out.println(myInterface.method3());
+//        } catch (IllegalAccessException | InstantiationException e) {
+//            e.printStackTrace();
+//        }
 
         try {
-            MyInterfaceTest myInterface = RepositoryGenerator.generateRepositoryImpl(MyInterfaceTest.class);
-            myInterface.method1(); // Wywołanie wygenerowanej implementacji
-            System.out.println(myInterface.method2()); // Wywołanie wygenerowanej implementacji
-            System.out.println(myInterface.method3());
-        } catch (IllegalAccessException | InstantiationException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            RepositoryGenerator.generateRepositoryImpToFilel(MyInterfaceTest.class, "MyInterfaceImpl.java");
+            RepositoryGenerator.generateRepositoryImpToFile(UserRepositoryTest.class, "./target/generated-sources/");
             System.out.println("Udalo sie do MyInterfaceImpl.java");
         } catch (Exception e) {
             e.printStackTrace();

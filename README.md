@@ -36,3 +36,21 @@ Konwencja nazewnicza:
 |     INSERT      |   add    |
 
 Sprawdzamy czy już mamy taką encję, jeśli tak, to nie dodajemy.
+
+
+RepositoryGenerator.generateRepositoryImpToFile
+//TODO
+// najważniejsza część tutaj się odbywa, a potem niżej będzie tylko dzielenie nazwy metody i dodawanie odpowiednich elementów do zapytania.
+
+// Konwertujemy nasz typ na Classe zwykłą, uzykujemy dostęp do adnotacji, z adnotacji bierzemy nazwę tabeli.
+// Następnie uzyskujemy dotęp do pól klasy, myClass.getDeclaredFields(); dla każdego pola sprawdzamy czy ma adnotację że jest to pola bazodanowe,
+// dla każdego pobieramy nazwę kolumny w bazie danych, i
+// Później robimy mapę, nazwa pola (nazwa w klasie tej encji) na odpowiednie nazwy pól w bazie danych. z adnotacji.
+// Mając to wszystko możemy przytąpić do samego kompilowania / przetwarzania nazw metod.
+
+Wiemy co ona zwraca, konwencja jest taka:
+nazwy pol itp itd wszystko z małej, a nazwy wyróżnione z języka SQL są DUŻYMI,
+tak aby można było łatwiej rozdzielać. tak naprawdę można połączyć diwe hashmapy, bo przecież
+Nazwy wyróżnione w SQL będą zawsze inne od tych nazw usera.
+
+Taki jest plan.
