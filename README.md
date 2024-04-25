@@ -35,6 +35,11 @@ Konwencja nazewnicza:
 |  WHERE x.y = ?  |   By?    |
 |     INSERT      |   add    |
 
+Ogólnie poprawne zapytania SQLowe
+^SELECT(?:\s+\w+(?:\s*,\s*\w+)*)?\s+FROM\s+\w+(?:\s+JOIN\s+\w+\s+ON\s+\w+\s*=\s*\w+)*(?:\s+WHERE\s+\w+\s*[=<>!]+\s*\w+)?(?:\s+GROUP\s+BY\s+\w+)?(?:\s+ORDER\s+BY\s+\w+(?:\s+ASC|\s+DESC)?)?$
+
+w pliku schemat.drawio jest rozpiska dokładniejsza.
+
 Sprawdzamy czy już mamy taką encję, jeśli tak, to nie dodajemy.
 
 
