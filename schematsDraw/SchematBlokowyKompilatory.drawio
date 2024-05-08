@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-05-08T22:24:17.393Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0" etag="C_I9DOvGYhFqQvukto5z" version="24.3.0" type="github">
+<mxfile host="app.diagrams.net" modified="2024-05-08T22:47:45.597Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0" etag="4WYQI7ja2m379GWN5qaS" version="24.3.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="3047" dy="3220" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1348" dy="1301" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -64,7 +64,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-16" value="" style="swimlane;startSize=0;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-380" y="140" width="1930" height="1000" as="geometry">
+          <mxGeometry x="-420" y="130" width="1970" height="1040" as="geometry">
             <mxRectangle x="-70" y="140" width="50" height="40" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -83,8 +83,14 @@
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-20" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-16">
           <mxGeometry x="120" y="10" width="50" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-16" source="cGUAd-4T3Jj6xi8aEvbd-25" target="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-16" source="cGUAd-4T3Jj6xi8aEvbd-25" target="cGUAd-4T3Jj6xi8aEvbd-27">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="145" y="210" />
+              <mxPoint x="480" y="210" />
+              <mxPoint x="480" y="220" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-25" value="Dla każdego tokenu" style="html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.loop" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-16">
           <mxGeometry x="75" y="170" width="140" height="30" as="geometry" />
@@ -93,29 +99,27 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-27" value="" style="swimlane;startSize=0;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-16">
-          <mxGeometry x="43.75" y="230" width="1836.25" height="680" as="geometry" />
+          <mxGeometry x="40" y="230" width="1836.25" height="710" as="geometry" />
         </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-30" target="cGUAd-4T3Jj6xi8aEvbd-31">
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-30" target="cGUAd-4T3Jj6xi8aEvbd-88">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-30" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="247.5" y="20" width="50" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-31">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="142.5" y="130" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-51" value="NIE" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="cGUAd-4T3Jj6xi8aEvbd-50">
-          <mxGeometry x="-0.0091" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-30" value="START" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
+          <mxGeometry x="416.87" y="10" width="73.75" height="40" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-31" target="cGUAd-4T3Jj6xi8aEvbd-55">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-96" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-31" target="cGUAd-4T3Jj6xi8aEvbd-93">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-97" value="&lt;div&gt;NIE&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="cGUAd-4T3Jj6xi8aEvbd-96">
+          <mxGeometry x="0.1038" y="-3" relative="1" as="geometry">
+            <mxPoint x="1" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-31" value="Czy rozpoznaje nazwę tokenu" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="220" y="90" width="120" height="80" as="geometry" />
+          <mxGeometry x="475" y="162.5" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-36" target="cGUAd-4T3Jj6xi8aEvbd-37">
           <mxGeometry relative="1" as="geometry" />
@@ -134,46 +138,42 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-36" value="Czy ma atrybuty?" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="937.65" y="97.5" width="100" height="80" as="geometry" />
+          <mxGeometry x="1192.65" y="170" width="100" height="80" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-37" target="cGUAd-4T3Jj6xi8aEvbd-46">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-37" value="&lt;div&gt;Zapisz, przetwarzany token&lt;/div&gt;&lt;div&gt;do zmiennej (aby nie zgubić)&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="1107.65" y="107.5" width="120" height="60" as="geometry" />
+          <mxGeometry x="1362.65" y="180" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-41" value="&lt;div&gt;Wygeneruj kod z&lt;/div&gt;&lt;div&gt;pola &quot;aktualna generacja&quot;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="927.65" y="237.5" width="120" height="60" as="geometry" />
+          <mxGeometry x="1182.65" y="310" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-44" target="cGUAd-4T3Jj6xi8aEvbd-36">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-44" value="&lt;div&gt;INFO&lt;/div&gt;&lt;div&gt;Czy wewnątrz tego coś może być.np Where ... &lt;br&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="927.65" y="20" width="120" height="65" as="geometry" />
+          <mxGeometry x="1182.65" y="92.5" width="120" height="65" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-46" target="cGUAd-4T3Jj6xi8aEvbd-41">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-46" value="&lt;div&gt;Wrzuć na stos ten token.&lt;/div&gt;&lt;div&gt;W celu zapamiętania&amp;nbsp; &lt;br&gt;&lt;/div&gt;&lt;div&gt;dalszej części kodu tokenu&lt;/div&gt;" style="whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="1266.25" y="92.5" width="165" height="90" as="geometry" />
+          <mxGeometry x="1521.25" y="165" width="165" height="90" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-52" value="Czy kolejny to " style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="45" y="200" width="100" height="80" as="geometry" />
+          <mxGeometry x="323.75" y="350" width="100" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-54" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-53" target="cGUAd-4T3Jj6xi8aEvbd-31">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-77" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-53" target="cGUAd-4T3Jj6xi8aEvbd-76">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-53" value="&lt;div&gt;Dodaj nazwę do bufora.&lt;/div&gt;" style="whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="25" y="100" width="120" height="60" as="geometry" />
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" target="cGUAd-4T3Jj6xi8aEvbd-76">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="60" y="302.5" as="sourcePoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-55" target="cGUAd-4T3Jj6xi8aEvbd-58">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-55" value="&lt;div&gt;Pobierz info o tokenie&lt;/div&gt;&lt;div&gt;(z jakiegoś enuma / mapy)&lt;/div&gt;&lt;div&gt;Może być enum i metoda fromString czy jakoś tak&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="365" y="70" width="120" height="120" as="geometry" />
+          <mxGeometry x="620" y="142.5" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-63" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-58" target="cGUAd-4T3Jj6xi8aEvbd-62">
           <mxGeometry relative="1" as="geometry" />
@@ -192,23 +192,23 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-58" value="&lt;div&gt;Czy jest terminatorem tokenu ze stosu?&lt;/div&gt;&lt;div&gt;Lub symbolem wymuszenia&lt;br&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="545" y="100" width="225" height="140" as="geometry" />
+          <mxGeometry x="800" y="172.5" width="225" height="140" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-59" target="cGUAd-4T3Jj6xi8aEvbd-58">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-59" value="&lt;div&gt;AntyAlternatywa&lt;/div&gt;&lt;div&gt;(W tedy na odwrót warunek)&lt;/div&gt;&lt;div&gt;Czy ten token może być zagnieżdżony ? (to chyba lepiej)&lt;br&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="535" y="35" width="175" height="65" as="geometry" />
+          <mxGeometry x="790" y="107.5" width="175" height="65" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-62" target="cGUAd-4T3Jj6xi8aEvbd-58">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="592.5" y="405" as="sourcePoint" />
-            <mxPoint x="515.0000000000002" y="175" as="targetPoint" />
+            <mxPoint x="847.5" y="477.5" as="sourcePoint" />
+            <mxPoint x="770.0000000000002" y="247.5" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="623" y="405" />
-              <mxPoint x="623" y="440" />
-              <mxPoint x="485" y="440" />
-              <mxPoint x="485" y="210" />
+              <mxPoint x="878" y="477.5" />
+              <mxPoint x="878" y="512.5" />
+              <mxPoint x="740" y="512.5" />
+              <mxPoint x="740" y="282.5" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -218,27 +218,65 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-62" value="&lt;div&gt;Zdejmij ze stosu,&lt;/div&gt;&lt;div&gt;wygeneruj kod końcowy dla tego tokenu&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="562.5" y="350" width="120" height="60" as="geometry" />
+          <mxGeometry x="817.5" y="422.5" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-69" value="Symbol wymuszenia - kończy aktualny token, tak aby kolejny token odnosił się do wyższego kontekstu o 1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="297.5" y="200" width="175" height="65" as="geometry" />
+          <mxGeometry x="552.5" y="272.5" width="175" height="65" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.437;entryY=0.94;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-69" target="cGUAd-4T3Jj6xi8aEvbd-58">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-73" value="Przejdź do kolejnego" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="616.25" y="560" width="100" height="60" as="geometry" />
+          <mxGeometry x="871.25" y="632.5" width="100" height="60" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-41" target="cGUAd-4T3Jj6xi8aEvbd-73">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="988" y="540" />
-              <mxPoint x="666" y="540" />
+              <mxPoint x="1243" y="612.5" />
+              <mxPoint x="921" y="612.5" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-76" value="&lt;div&gt;Wystaw flagę, że&lt;/div&gt;&lt;div&gt;przetwarzamy nazwę, ew cy bufor jest pusty?&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="25" y="15" width="120" height="60" as="geometry" />
+          <mxGeometry x="60" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-79" value="Czy zawartość bufora jednoznacznie okresla nazwę atrybutu encji?" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
+          <mxGeometry x="13.129999999999995" y="145" width="213.75" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-98" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-82" target="cGUAd-4T3Jj6xi8aEvbd-93">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-82" value="Co oznacza, że jest to nazwa atrybutu encji. nazwa pola w kodzie jaowowym" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
+          <mxGeometry x="350" y="242.5" width="175" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-88" target="cGUAd-4T3Jj6xi8aEvbd-31">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="535" y="114" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-92" value="TAK" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="cGUAd-4T3Jj6xi8aEvbd-91">
+          <mxGeometry x="-0.6323" relative="1" as="geometry">
+            <mxPoint x="3" y="16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-94" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-88" target="cGUAd-4T3Jj6xi8aEvbd-93">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-95" value="NIE" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="cGUAd-4T3Jj6xi8aEvbd-94">
+          <mxGeometry x="-0.1555" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-88" value="Czy Bufor &quot;nazwy&quot; jest pusty?" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
+          <mxGeometry x="393.74" y="70" width="126.26" height="87.5" as="geometry" />
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-93" value="&lt;div&gt;Dodaj nazwę do bufora.&lt;/div&gt;" style="whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
+          <mxGeometry x="260" y="172.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-99" value="Kolejna Element to część nazwy atrybutu" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
+          <mxGeometry x="251.25" y="30" width="137.5" height="65" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
