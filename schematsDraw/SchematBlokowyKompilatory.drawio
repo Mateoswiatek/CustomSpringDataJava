@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-05-08T22:47:45.597Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0" etag="4WYQI7ja2m379GWN5qaS" version="24.3.0" type="github">
+<mxfile host="app.diagrams.net" modified="2024-05-08T23:15:16.746Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0" etag="KGGlThCzKmlxPYaWOm7S" version="24.3.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1348" dy="1301" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1462" dy="1405" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -64,7 +64,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-16" value="" style="swimlane;startSize=0;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-420" y="130" width="1970" height="1040" as="geometry">
+          <mxGeometry x="-420" y="120" width="1970" height="1040" as="geometry">
             <mxRectangle x="-70" y="140" width="50" height="40" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -74,7 +74,7 @@
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-14" value="&lt;div&gt;TODO&lt;/div&gt;&lt;div&gt;Od wielkiej litery, prócz pierwszego???&lt;br&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-16">
           <mxGeometry x="200" y="10" width="120" height="65" as="geometry" />
         </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-13" value="&lt;div&gt;Podzielenie nazwy na tokeny.&lt;/div&gt;&lt;div&gt;Każdy token zaczyna się od wielkiej litery&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-16">
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-13" value="&lt;div&gt;Podzielenie nazwy na elementy.&lt;/div&gt;&lt;div&gt;Każdy element zaczyna się od wielkiej litery&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-16">
           <mxGeometry x="59.69" y="80" width="170.62" height="70" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-16" source="cGUAd-4T3Jj6xi8aEvbd-20" target="cGUAd-4T3Jj6xi8aEvbd-13">
@@ -92,14 +92,14 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-25" value="Dla każdego tokenu" style="html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.loop" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-16">
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-25" value="Dla każdego elementu" style="html=1;dashed=0;whiteSpace=wrap;shape=mxgraph.dfd.loop" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-16">
           <mxGeometry x="75" y="170" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-16" source="cGUAd-4T3Jj6xi8aEvbd-13" target="cGUAd-4T3Jj6xi8aEvbd-25">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-27" value="" style="swimlane;startSize=0;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-16">
-          <mxGeometry x="40" y="230" width="1836.25" height="710" as="geometry" />
+          <mxGeometry x="50" y="210" width="1836.25" height="710" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-30" target="cGUAd-4T3Jj6xi8aEvbd-88">
           <mxGeometry relative="1" as="geometry" />
@@ -118,7 +118,7 @@
             <mxPoint x="1" y="-9" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-31" value="Czy rozpoznaje nazwę tokenu" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-31" value="Czy rozpoznaje element jako nazwę tokenu" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
           <mxGeometry x="475" y="162.5" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-36" target="cGUAd-4T3Jj6xi8aEvbd-37">
@@ -161,19 +161,11 @@
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-46" value="&lt;div&gt;Wrzuć na stos ten token.&lt;/div&gt;&lt;div&gt;W celu zapamiętania&amp;nbsp; &lt;br&gt;&lt;/div&gt;&lt;div&gt;dalszej części kodu tokenu&lt;/div&gt;" style="whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
           <mxGeometry x="1521.25" y="165" width="165" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-52" value="Czy kolejny to " style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="323.75" y="350" width="100" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" target="cGUAd-4T3Jj6xi8aEvbd-76">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="60" y="302.5" as="sourcePoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-55" target="cGUAd-4T3Jj6xi8aEvbd-58">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-55" value="&lt;div&gt;Pobierz info o tokenie&lt;/div&gt;&lt;div&gt;(z jakiegoś enuma / mapy)&lt;/div&gt;&lt;div&gt;Może być enum i metoda fromString czy jakoś tak&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="620" y="142.5" width="120" height="120" as="geometry" />
+          <mxGeometry x="660" y="142.5" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-63" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-58" target="cGUAd-4T3Jj6xi8aEvbd-62">
           <mxGeometry relative="1" as="geometry" />
@@ -227,21 +219,40 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-73" value="Przejdź do kolejnego" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="871.25" y="632.5" width="100" height="60" as="geometry" />
+          <mxGeometry x="650" y="630" width="100" height="60" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-41" target="cGUAd-4T3Jj6xi8aEvbd-73">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1243" y="612.5" />
-              <mxPoint x="921" y="612.5" />
+              <mxPoint x="1243" y="613" />
+              <mxPoint x="700" y="613" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-76" value="&lt;div&gt;Wystaw flagę, że&lt;/div&gt;&lt;div&gt;przetwarzamy nazwę, ew cy bufor jest pusty?&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="60" y="350" width="120" height="60" as="geometry" />
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-79" target="cGUAd-4T3Jj6xi8aEvbd-106">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-108" value="TAK" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="cGUAd-4T3Jj6xi8aEvbd-107">
+          <mxGeometry x="-0.0894" y="1" relative="1" as="geometry">
+            <mxPoint x="19" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-109" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-79">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="400" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="160" y="260" />
+              <mxPoint x="160" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-110" value="NIE" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="cGUAd-4T3Jj6xi8aEvbd-109">
+          <mxGeometry x="0.0968" y="-1" relative="1" as="geometry">
+            <mxPoint x="1" y="-90" as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-79" value="Czy zawartość bufora jednoznacznie okresla nazwę atrybutu encji?" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
-          <mxGeometry x="13.129999999999995" y="145" width="213.75" height="115" as="geometry" />
+          <mxGeometry x="29.999999999999996" y="145" width="213.75" height="115" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-98" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-82" target="cGUAd-4T3Jj6xi8aEvbd-93">
           <mxGeometry relative="1" as="geometry" />
@@ -272,11 +283,41 @@
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-88" value="Czy Bufor &quot;nazwy&quot; jest pusty?" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
           <mxGeometry x="393.74" y="70" width="126.26" height="87.5" as="geometry" />
         </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-93" target="cGUAd-4T3Jj6xi8aEvbd-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-93" value="&lt;div&gt;Dodaj nazwę do bufora.&lt;/div&gt;" style="whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
           <mxGeometry x="260" y="172.5" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="cGUAd-4T3Jj6xi8aEvbd-99" value="Kolejna Element to część nazwy atrybutu" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#6d8764;fontColor=#ffffff;strokeColor=#3A5431;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
           <mxGeometry x="251.25" y="30" width="137.5" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-100" target="cGUAd-4T3Jj6xi8aEvbd-31">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="630" y="115" />
+              <mxPoint x="630" y="203" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-100" value="Sprawdzenie, czy ten token może wytępować po poprzednim? zabepieczenie, gdyby nazwa atrybutu zaczynała się jak token" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
+          <mxGeometry x="552.5" y="50" width="175" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="cGUAd-4T3Jj6xi8aEvbd-27" source="cGUAd-4T3Jj6xi8aEvbd-106" target="cGUAd-4T3Jj6xi8aEvbd-73">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="80" y="400" />
+              <mxPoint x="20" y="400" />
+              <mxPoint x="20" y="610" />
+              <mxPoint x="700" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-106" value="Wygeneruj kod dla atrybutu" style="whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
+          <mxGeometry x="19.999999999999993" y="290" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cGUAd-4T3Jj6xi8aEvbd-165" value="&lt;div&gt;Sprawdzanie kontekstu, czy to jest podzapytanie? ew tokeny &quot;otwierające&quot; nowe zapytania, ustawiają flagę &quot;podzapytanie&quot; na true. w tedy kod inaczej będzie muiał działać, bo from jest po tym co pobieramy. &lt;br&gt;&lt;/div&gt;&lt;div&gt;jakiś bufor, że wystkie tokeny zapiujemy do kolejki. i gdy będzie &quot;from&quot; to dostajemy nazwę metody, i gdy będiemy terminować token from, w tedy dodajemy całą zawartość kolejki, modyfikując odpowiednio nazwy.&lt;/div&gt;&lt;div&gt;Bardziej skomplikowane, bo nie wiemy gdzie się kończą atrybuty. chyba że, stworzyć zamianę szyku.&lt;/div&gt;&lt;div&gt;Podzapytania trzeba zacząć&lt;/div&gt;&lt;div&gt;fromXselect..... i w tedy wszystko będzie git&lt;br&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" vertex="1" parent="cGUAd-4T3Jj6xi8aEvbd-27">
+          <mxGeometry x="200" y="380" width="378.75" height="197.5" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
