@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-05-08T21:14:40.775Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0" etag="VelHunIT-iY86DFxCitv" version="24.3.0" type="github">
+<mxfile host="app.diagrams.net" modified="2024-05-08T21:32:06.186Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0" etag="m0AccCQhon_sTnXezk5T" version="24.3.0" type="github">
   <diagram id="OWsG2RuxkK1waqEO1zRi" name="Page-1">
-    <mxGraphModel dx="1194" dy="1126" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1194" dy="1078" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -279,6 +279,9 @@
         </mxCell>
         <mxCell id="191" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;fontColor=#FFFFFF;" parent="1" source="190" target="67" edge="1">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ci_DQCMtS3LZxM7C9-YY-208" value="&lt;p style=&quot;line-height: 100%;&quot;&gt;&lt;/p&gt;&lt;h1 style=&quot;line-height: 110%;&quot;&gt;Note&lt;/h1&gt;&lt;p style=&quot;line-height: 110%;&quot;&gt;Pojedyńcze zpaytnaia, nazwę tabeli będą miały z adnotacji klasy.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#fad7ac;strokeColor=#b46504;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="740" y="80" width="165" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
