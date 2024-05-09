@@ -5,8 +5,7 @@ import org.example.model.adnotations.databaserepository.RepoAutoImpl;
 
 @RepoAutoImpl
 public interface UserRepositoryTest extends AbstractRepository<User, Long> {
-    User findAll();
-    void method1();
+    void method1(String s, Long l);
     String method2();
     Integer method3();
 }

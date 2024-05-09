@@ -1,13 +1,18 @@
 package org.example.model.adnotations.databaserepository;
 
 import org.example.model.adnotations.databasecreator.DatabaseTable;
+import org.example.model.tokens.QueryGenerator;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class RepositoryGenerator {
 
@@ -77,9 +82,6 @@ public class RepositoryGenerator {
                 databaseAnnotation = entityClass.getAnnotation(DatabaseTable.class);
                 System.out.println(databaseAnnotation.tableName());
 
-                //TODO
-                // najważniejsza część tutaj się odbywa, a potem niżej będzie tylko dzielenie nazwy metody i dodawanie odpowiednich elementów do zapytania.
-
                 // Konwertujemy nasz typ na Classe zwykłą, uzykujemy dostęp do adnotacji, z adnotacji bierzemy nazwę tabeli.
                 // Następnie uzyskujemy dotęp do pól klasy, myClass.getDeclaredFields(); dla każdego pola sprawdzamy czy ma adnotację że jest to pola bazodanowe,
                 // dla każdego pobieramy nazwę kolumny w bazie danych, i
@@ -93,6 +95,30 @@ public class RepositoryGenerator {
 
         //TODO importy niezbednych rzeczy, importy interface adnotacje
 
+        //bierzemy metody z interface bazowego.
+        var a = Arrays.stream(interfaceClass.getInterfaces()).filter( x -> x.equals(AbstractRepository.class)).findFirst().orElseThrow();
+        Method[] baseMethods = a.getDeclaredMethods();
+
+        /*
+        Dodatkowe w realu
+        import org.hibernate.Session;
+         Session session = HibernateUtil.getSessionFactory().openSession();
+
+        // Twórz PreparedStatement i ustawiaj parametry
+        String query = "SELECT DISTINCT ... WHERE x.lastname = ? AND x.firstname = ?";
+        PreparedStatement preparedStatement = session.connection().prepareStatement(query);
+        preparedStatement.setString(1, login);
+        preparedStatement.setObject(2, someObject);
+
+        // Wykonaj zapytanie i przetwarzaj wyniki
+        // ...
+
+        // Nie zapomnij zamknąć sesji po zakończeniu
+        session.close();
+
+        będzie setObject
+         */
+
         StringBuilder implementationCode = new StringBuilder();
         implementationCode.append("public class ")
                 .append(interfaceName)
@@ -100,20 +126,43 @@ public class RepositoryGenerator {
                 .append(interfaceName)
                 .append(" {\n");
 
-        Method[] methods = interfaceClass.getDeclaredMethods();
-        for (Method method : methods) {
+        QueryGenerator queryGenerator = new QueryGenerator(databaseAnnotation);
+
+        Method[] interfaceMethods = interfaceClass.getDeclaredMethods();
+
+        List<Method> allMethods = new ArrayList<>();
+        Collections.addAll(allMethods, baseMethods);
+        Collections.addAll(allMethods, interfaceMethods);
+
+        for (Method method : allMethods) {
+            //TODO będie więcej zabawy z kluczami i typami.
+//            System.out.println(method.toString());
             implementationCode.append("    @Override\n")
                     .append("    public ")
+                    //TODO jeśli jest object, to zwracamy Typ przekazywany generycznie - T
+                    // Podobnie z ID
                     .append(method.getReturnType().getSimpleName())
                     .append(" ")
-                    .append(method.getName());
+                    .append(method.getName())
+                    .append("(");
 
 //            method.get
-            method.getName();
-
+//            method.getName();
+            Parameter[] parameters = method.getParameters();
+            for (int i = 0; i < parameters.length; i++) {
+                Parameter parameter = parameters[i];
+                implementationCode.append(parameter.getType().getSimpleName()).append(" ").append(parameter.getName());
+                if (i < parameters.length - 1) {
+                    implementationCode.append(", ");
+                }
+            }
 
             implementationCode
-                    .append("() {\n")
+                    .append(") {\n")
+                    .append("        String query = ")
+                    .append(queryGenerator.processMethod(method))
+                    .append(";\n")
+
                     .append("        // Tutaj bedzie implementacja moze kiedys ")
                     .append(method.getName())
                     .append("\n")

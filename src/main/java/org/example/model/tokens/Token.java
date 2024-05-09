@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
-public enum Token implements TokenInterface {
+public enum Token {
     FIND("find", true, "(SELECT ", " );", new ArrayList<>()),
     ALL("All", true, " * ", "", null );
 
