@@ -1,8 +1,8 @@
-package org.example.adnotations.databasecreator;
+package org.example.model.adnotations.databasecreator;
 
-import org.example.adnotations.Controller;
+import org.example.model.adnotations.Controller;
 
-import org.example.adnotations.EntityProperties;
+import org.example.model.adnotations.EntityProperties;
 public class DataBaseCreator {
 
     public String createTable(Class<?> myClass) {

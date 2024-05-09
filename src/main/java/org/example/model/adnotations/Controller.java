@@ -1,8 +1,9 @@
-package org.example.adnotations;
+package org.example.model.adnotations;
 
 import lombok.Getter;
-import org.example.adnotations.databasecreator.DatabaseField;
-import org.example.adnotations.databasecreator.DatabaseTable;
+import org.example.User;
+import org.example.model.adnotations.databasecreator.DatabaseField;
+import org.example.model.adnotations.databasecreator.DatabaseTable;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -53,7 +54,7 @@ public class Controller {
         EntityProperties entityProperties = new EntityProperties();
         DatabaseTable databaseTable = myClass.getAnnotation(DatabaseTable.class);
 
-        entityProperties.setTableName(databaseTable.name().isEmpty() ? myClass.getSimpleName().toLowerCase() : databaseTable.name());
+        entityProperties.setTableName(databaseTable.tableName().isEmpty() ? myClass.getSimpleName().toLowerCase() : databaseTable.tableName());
         var columns = entityProperties.getFieldToColumns();
         Arrays.stream(myClass.getDeclaredFields())
                 .filter(x -> x.isAnnotationPresent(DatabaseField.class))

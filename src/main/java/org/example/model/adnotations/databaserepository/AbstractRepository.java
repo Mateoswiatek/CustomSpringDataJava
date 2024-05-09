@@ -1,4 +1,4 @@
-package org.example.adnotations.databaserepository;
+package org.example.model.adnotations.databaserepository;
 
 
 public interface AbstractRepository<T, ID> {

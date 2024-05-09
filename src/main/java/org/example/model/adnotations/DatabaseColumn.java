@@ -1,4 +1,4 @@
-package org.example.adnotations;
+package org.example.model.adnotations;
 
 import lombok.Data;
 

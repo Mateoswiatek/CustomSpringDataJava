@@ -1,9 +1,10 @@
-package org.example.adnotations.databaserepository;
+package org.example.model.adnotations.databaserepository;
+
+import org.example.model.adnotations.databasecreator.DatabaseTable;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Arrays;
@@ -58,27 +59,35 @@ public class RepositoryGenerator {
             //TODO może abstrakcyjne by się udało??
         }
 
+        DatabaseTable databaseAnnotation = null;
+        //Dostanie się do adnotacji Encji
+        //TODO na streamy to zamienić
         Type[] genericInterfaces = interfaceClass.getGenericInterfaces(); // Typy interfaców które ta klasa implementuje
         for (Type genericInterface : genericInterfaces) { // Po wzytkich
-            if(genericInterface instanceof ParameterizedType parameterizedType) { // Tylko te parametryczne, bo nasza jest parametryczna.
-                Type rawType = parameterizedType.getRawType(); // Wywalamy Parametry, np AbstractRepository<T, ID> będzie AbstractRepository
-                if(rawType.equals(AbstractRepository.class)) { // Jeśli to jest ta nasza klasa
-                    Type[] actualTypeArguments = parameterizedType.getActualTypeArguments(); // Nasze parametry T oraz ID
-                    Type entityType = actualTypeArguments[0];
+            if(genericInterface instanceof ParameterizedType parameterizedType && parameterizedType.getRawType().equals(AbstractRepository.class)) { // Tylko te parametryczne, bo nasza jest parametryczna. i jeśli jest to nsza klasa
+                System.out.println(parameterizedType);
+    //                    System.out.println(Arrays.toString(parameterizedType.getActualTypeArguments()));
+                Type[] actualTypeArguments = parameterizedType.getActualTypeArguments(); // Nasze parametry T oraz ID
+    //                    System.out.println(actualTypeArguments[0]);
+                Type entityType = actualTypeArguments[0];
+                Type idType = actualTypeArguments[1];
 
+                System.out.println(entityType);
+                Class<?> entityClass = (Class<?>) entityType; // rutowanie typu na klasę
+                databaseAnnotation = entityClass.getAnnotation(DatabaseTable.class);
+                System.out.println(databaseAnnotation.tableName());
 
+                //TODO
+                // najważniejsza część tutaj się odbywa, a potem niżej będzie tylko dzielenie nazwy metody i dodawanie odpowiednich elementów do zapytania.
 
-                    //TODO
-                    // najważniejsza część tutaj się odbywa, a potem niżej będzie tylko dzielenie nazwy metody i dodawanie odpowiednich elementów do zapytania.
-
-                    // Konwertujemy nasz typ na Classe zwykłą, uzykujemy dostęp do adnotacji, z adnotacji bierzemy nazwę tabeli.
-                    // Następnie uzyskujemy dotęp do pól klasy, myClass.getDeclaredFields(); dla każdego pola sprawdzamy czy ma adnotację że jest to pola bazodanowe,
-                    // dla każdego pobieramy nazwę kolumny w bazie danych, i
-                    // Później robimy mapę, nazwa pola (nazwa w klasie tej encji) na odpowiednie nazwy pól w bazie danych. z adnotacji.
-                    // Mając to wszystko, .... kontynuacja w README...
-                }
+                // Konwertujemy nasz typ na Classe zwykłą, uzykujemy dostęp do adnotacji, z adnotacji bierzemy nazwę tabeli.
+                // Następnie uzyskujemy dotęp do pól klasy, myClass.getDeclaredFields(); dla każdego pola sprawdzamy czy ma adnotację że jest to pola bazodanowe,
+                // dla każdego pobieramy nazwę kolumny w bazie danych, i
+                // Później robimy mapę, nazwa pola (nazwa w klasie tej encji) na odpowiednie nazwy pól w bazie danych. z adnotacji.
+                // Mając to wszystko, .... kontynuacja w README...
             }
         }
+        System.out.println(databaseAnnotation.tableName());
 
         String interfaceName = interfaceClass.getSimpleName();
 
@@ -99,7 +108,7 @@ public class RepositoryGenerator {
                     .append(" ")
                     .append(method.getName());
 
-            method.get
+//            method.get
             method.getName();
 
 

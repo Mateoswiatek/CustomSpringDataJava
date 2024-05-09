@@ -1,15 +1,15 @@
 package org.example;
 
 import lombok.Data;
-import org.example.adnotations.databasecreator.DatabaseField;
-import org.example.adnotations.databasecreator.DatabaseTable;
+import org.example.model.adnotations.databasecreator.DatabaseField;
+import org.example.model.adnotations.databasecreator.DatabaseTable;
 
 @Data
-@DatabaseTable(keyColumn = "id")
+@DatabaseTable(tableName = "user", keyColumn = "id")
 public class User {
     @DatabaseField(columnName = "id")
     private Long id;
-    @DatabaseField(columnName = "user_NAME")
+    @DatabaseField(columnName = "user_name")
     private String name;
     @DatabaseField(columnName = "user_surname", columnType = "VARCHAR(4000)")
     private String surname;

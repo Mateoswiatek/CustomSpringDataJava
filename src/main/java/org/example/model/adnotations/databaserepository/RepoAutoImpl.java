@@ -1,4 +1,5 @@
-package org.example.adnotations.databasecreator;
+package org.example.model.adnotations.databaserepository;
+
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,7 +8,5 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)
 @Retention(value = RetentionPolicy.RUNTIME)
-public @interface DatabaseTable {
-    String name() default "";
-    String keyColumn();
+public @interface RepoAutoImpl {
 }

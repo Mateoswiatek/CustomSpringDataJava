@@ -19,8 +19,9 @@ tej klasy w bazie danych.
 
 Jak na razie to tyle ;)
 
-
 Konwencja nazewnicza:
+z dokumentacji ;)
+https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
 
 
 |       SQL       |   Code   |
@@ -59,3 +60,14 @@ tak aby można było łatwiej rozdzielać. tak naprawdę można połączyć diwe
 Nazwy wyróżnione w SQL będą zawsze inne od tych nazw usera.
 
 Taki jest plan.
+
+
+uyjemy coś w tym tylu:
+String query = "SELECT DISTINCT ... WHERE x.lastname = ? AND x.firstname = ?";
+PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+// Ustawiamy login jako String
+preparedStatement.setString(1, login);
+
+// Ustawiamy inne obiekty (np. Integer, Date, itp.)
+preparedStatement.setObject(2, someObject);

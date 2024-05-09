@@ -1,8 +1,8 @@
 package org.example;
 
-import org.example.adnotations.databasecreator.DataBaseCreator;
+import org.example.model.adnotations.databasecreator.DataBaseCreator;
 
-import org.example.adnotations.databaserepository.RepositoryGenerator;
+import org.example.model.adnotations.databaserepository.RepositoryGenerator;
 
 public class Main {
     public static void main(String[] args) {

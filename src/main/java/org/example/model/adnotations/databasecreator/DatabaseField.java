@@ -1,4 +1,4 @@
-package org.example.adnotations.databasecreator;
+package org.example.model.adnotations.databasecreator;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
