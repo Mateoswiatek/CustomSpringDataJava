@@ -1,6 +1,7 @@
 package org.example.model.tokens;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.example.model.adnotations.databasecreator.DatabaseTable;
 
 import java.lang.reflect.Method;
@@ -9,10 +10,13 @@ import java.util.List;
 
 import java.util.logging.Logger;
 
+@Data
 @AllArgsConstructor
 public class QueryGenerator {
     private static final Logger log = Logger.getLogger(QueryGenerator.class.getName());
-    DatabaseTable databaseTable;
+    Class entityClass;
+//    DatabaseTable databaseTable;
+
 
     public String processMethod(Method method) {
         // dzielenie nazwy na tokeny.

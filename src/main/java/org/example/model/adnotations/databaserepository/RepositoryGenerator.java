@@ -67,6 +67,9 @@ public class RepositoryGenerator {
         DatabaseTable databaseAnnotation = null;
         //Dostanie się do adnotacji Encji
         //TODO na streamy to zamienić
+
+        Class<?> entityClass = null;
+
         Type[] genericInterfaces = interfaceClass.getGenericInterfaces(); // Typy interfaców które ta klasa implementuje
         for (Type genericInterface : genericInterfaces) { // Po wzytkich
             if(genericInterface instanceof ParameterizedType parameterizedType && parameterizedType.getRawType().equals(AbstractRepository.class)) { // Tylko te parametryczne, bo nasza jest parametryczna. i jeśli jest to nsza klasa
@@ -78,7 +81,7 @@ public class RepositoryGenerator {
                 Type idType = actualTypeArguments[1];
 
                 System.out.println(entityType);
-                Class<?> entityClass = (Class<?>) entityType; // rutowanie typu na klasę
+                entityClass = (Class<?>) entityType; // rutowanie typu na klasę
                 databaseAnnotation = entityClass.getAnnotation(DatabaseTable.class);
                 System.out.println(databaseAnnotation.tableName());
 
@@ -126,7 +129,9 @@ public class RepositoryGenerator {
                 .append(interfaceName)
                 .append(" {\n");
 
-        QueryGenerator queryGenerator = new QueryGenerator(databaseAnnotation);
+                //databaseAnnotation - adnotacja
+        //entityClass cała klasa
+        QueryGenerator queryGenerator = new QueryGenerator(entityClass);
 
         Method[] interfaceMethods = interfaceClass.getDeclaredMethods();
 
