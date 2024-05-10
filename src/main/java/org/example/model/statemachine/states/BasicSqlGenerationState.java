@@ -4,7 +4,7 @@ import org.example.model.statemachine.State;
 import org.example.model.statemachine.StateInterface;
 import org.example.model.tokens.TokenInterface;
 
-public class SelectState extends State {
+public class BasicSqlGenerationState extends State {
     private String generate = "SELECT ";
 
 

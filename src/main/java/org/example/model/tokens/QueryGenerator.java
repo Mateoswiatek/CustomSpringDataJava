@@ -2,7 +2,6 @@ package org.example.model.tokens;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.example.model.adnotations.databasecreator.DatabaseTable;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -21,16 +20,37 @@ public class QueryGenerator {
     public String processMethod(Method method) {
         // dzielenie nazwy na tokeny.
         method.getName();
-        var elements = this.splitNameToElementsList("długioStringaTegoTypu");
-        this.splitElementsToTokens(elements);
+        this.splitNameToTokens("findAllById");
+//        var elements = this.splitNameToElementsList("długioStringaTegoTypu");
+//        this.splitNameToTokens(elements);
 
         return "SELECT * FROM TABLE NazwaTabeli123; // wygenerowano z nazwy=" + method.getName();
     }
-    public void splitElementsToTokens(List<String> elements) {
-        var token = new FieldNameToken();
-        processToken(token);
+    public void splitNameToTokens(String methodName) {
+        List<TokenInterface> tokens = new ArrayList<>();
+
+        StringBuilder prefix = new StringBuilder();
+        for(int i =0; i<methodName.length(); i++) {
+            prefix.append(methodName.charAt(i));
+
+            //TODO zamienić na Stringa / ew w case zamienić na Buildera
+            switch(prefix.toString()){
+                case "find" -> tokens.add(new SqlToken("SELECT ", "FROM " + entityClass.getSimpleName()));
+                //dodać sprawdzanie podzapytań. czyli najpierw czy jet specjalny znak,
+                // potem sprawdzamy nazwę
+                default -> {
+                    //sprawdzamy, czy ten prefix odpowiada nazwie nazych pól. jeśli tak, to zerujemy
+                    // prefix
+                }
+            }
+        }
+
+
+
+            //W tokenie będzie już informacja o nazwie tabeli i nazwie pola.
         // tu dajemy to ze schematu.
 
+        //mając tokeny przekazujemy je po kolei do naszej maszyny stanów.
 
         // robimy listę od googla tą ze wszystkich implementacjami danego interface. Loader czy jakoś tak.
         // robimy z tej listy hash seta, aby szybciej się szukało po nazwach???
