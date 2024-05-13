@@ -5,52 +5,66 @@ import lombok.Data;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
+import java.util.Queue;
 import java.util.logging.Logger;
 
 @Data
 @AllArgsConstructor
 public class QueryGenerator {
     private static final Logger log = Logger.getLogger(QueryGenerator.class.getName());
+
+    String chars; //todo jakoś ładniej to przetwarzac? tablica? ewentualnie lista charów?
+
     Class entityClass;
+    List<TokenInterface> tokens = new ArrayList<>();
+    Queue<TokenInterface> openedTokens = new LinkedList<>();
 //    DatabaseTable databaseTable;
 
 
     public String processMethod(Method method) {
-        // dzielenie nazwy na tokeny.
         method.getName();
-        this.splitNameToTokens("findAllById");
+        chars = method.getName();
+        //TODO ogarnąć, co lepiej, czy przetwarzac, czy tylko dodac, chyba lepiej przetworzyć. bo w tedy wygenerujemy i tez dodamy.
+        openedTokens.add(EnumToken.START);
+        this.processToken(EnumToken.START);
+
+        TokenInterface token = this.getToken(); // co będziemy robić?
+        this.processToken(token);
+
 //        var elements = this.splitNameToElementsList("długioStringaTegoTypu");
 //        this.splitNameToTokens(elements);
 
         return "SELECT * FROM TABLE NazwaTabeli123; // wygenerowano z nazwy=" + method.getName();
     }
-    public void splitNameToTokens(String methodName) {
-        List<TokenInterface> tokens = new ArrayList<>();
-
+    public TokenInterface getToken() {
         StringBuilder prefix = new StringBuilder();
-        for(int i =0; i<methodName.length(); i++) {
-            prefix.append(methodName.charAt(i));
+        for(int i =0; i<chars.length(); i++) {
+            prefix.append(chars.charAt(i));
 
-            //TODO zamienić na Stringa / ew w case zamienić na Buildera
-            switch(prefix.toString()){
-                case "find" -> tokens.add(new SqlToken("SELECT ", "FROM " + entityClass.getSimpleName()));
-                //dodać sprawdzanie podzapytań. czyli najpierw czy jet specjalny znak,
-                // potem sprawdzamy nazwę
-                default -> {
-                    //sprawdzamy, czy ten prefix odpowiada nazwie nazych pól. jeśli tak, to zerujemy
-                    // prefix
-                }
-            }
+            //Z Notion opis, lecimy do momentu, kiedy nie będzie dokładnie jednego dopasowania. i w tedy je bierzemy,
+            // i przesuwamy się o tyle ile uzupełniliśmy samemu. Dzięki takiemu podejściu, zawsze bierzemy najdłuższy element.
+            // tak jak jest w teorii kompilacji
+            // findMyName oraz find, to weźmieny findMyName, bo aż do find będa 2 elementy. a gdy bedzie findM będzie już jeden,
+            // będzie uzupełnienie, a bardziej, weźmiemy ten token, i przesuniemy sie o tyle jaka jest róznica.
+
+
+
+//            //TODO zamienić na Stringa / ew w case zamienić na Buildera
+//            switch(prefix.toString()){
+//                case "find" -> tokens.add(new SqlToken("SELECT ", "FROM " + entityClass.getSimpleName()));
+//                //dodać sprawdzanie podzapytań. czyli najpierw czy jet specjalny znak,
+//                // potem sprawdzamy nazwę
+//                default -> {
+//                    //sprawdzamy, czy ten prefix odpowiada nazwie nazych pól. jeśli tak, to zerujemy
+//                    // prefix
+//                }
+//            }
+
         }
 
-
-
-            //W tokenie będzie już informacja o nazwie tabeli i nazwie pola.
-        // tu dajemy to ze schematu.
-
-        //mając tokeny przekazujemy je po kolei do naszej maszyny stanów.
 
         // robimy listę od googla tą ze wszystkich implementacjami danego interface. Loader czy jakoś tak.
         // robimy z tej listy hash seta, aby szybciej się szukało po nazwach???
@@ -79,16 +93,14 @@ public class QueryGenerator {
         return list;
     }
 
-    // Jakoś łądniej to robi
     public void processToken(TokenInterface token) {
-        System.out.println(token.getClass());
 
+        token.generateNow();
 
-        //to samo dla każdego tokenu
 
         switch (token) {
-            case FieldNameToken fieldNameToken -> {
-                fieldNameToken.nameOfField();
+            case DynamicToken fieldNameToken -> {
+//                fieldNameToken.nameOfField();
 
             }
             default -> throw new IllegalStateException("Unexpected value: " + token);

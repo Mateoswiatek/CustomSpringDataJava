@@ -1,7 +1,6 @@
 package org.example.model.adnotations;
 
 import lombok.Getter;
-import org.example.User;
 import org.example.model.adnotations.databasecreator.DatabaseField;
 import org.example.model.adnotations.databasecreator.DatabaseTable;
 
