@@ -94,10 +94,6 @@ public class RepositoryGenerator {
         }
         System.out.println(databaseAnnotation.tableName());
 
-        String interfaceName = interfaceClass.getSimpleName();
-
-        //TODO importy niezbednych rzeczy, importy interface adnotacje
-
         //bierzemy metody z interface bazowego.
         var a = Arrays.stream(interfaceClass.getInterfaces()).filter( x -> x.equals(AbstractRepository.class)).findFirst().orElseThrow();
         Method[] baseMethods = a.getDeclaredMethods();
@@ -122,15 +118,18 @@ public class RepositoryGenerator {
         będzie setObject
          */
 
+        String interfaceName = interfaceClass.getSimpleName();
+        var path = interfaceClass.getCanonicalName();
         StringBuilder implementationCode = new StringBuilder();
+
+        implementationCode.append("import ").append(path).append(";\n\n");
+
         implementationCode.append("public class ")
                 .append(interfaceName)
                 .append("Impl implements ")
                 .append(interfaceName)
                 .append(" {\n");
 
-                //databaseAnnotation - adnotacja
-        //entityClass cała klasa
         QueryGenerator queryGenerator = new QueryGenerator(entityClass);
 
         Method[] interfaceMethods = interfaceClass.getDeclaredMethods();
@@ -151,8 +150,6 @@ public class RepositoryGenerator {
                     .append(method.getName())
                     .append("(");
 
-//            method.get
-//            method.getName();
             Parameter[] parameters = method.getParameters();
             for (int i = 0; i < parameters.length; i++) {
                 Parameter parameter = parameters[i];
@@ -164,9 +161,9 @@ public class RepositoryGenerator {
 
             implementationCode
                     .append(") {\n")
-                    .append("        String query = ")
+                    .append("        String query = \"")
                     .append(queryGenerator.processMethod(method))
-                    .append(";\n")
+                    .append("\";\n")
 
                     .append("        // Tutaj bedzie implementacja moze kiedys ")
                     .append(method.getName())

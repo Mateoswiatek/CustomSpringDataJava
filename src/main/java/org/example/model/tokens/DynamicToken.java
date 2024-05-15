@@ -11,8 +11,6 @@ public class DynamicToken implements TokenInterface{
     String laterGeneratedCode;
     Set<EnumToken> availableNestings;
 
-    //TODO, możemy użyć Controllera. bo w nim sa wszystkie encje bazy danych. tak aby generować tokeny.
-
     @Override
     public EnumToken getType() {
         return EnumToken.DYNAMIC_TOKEN;

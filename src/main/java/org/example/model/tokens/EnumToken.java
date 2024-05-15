@@ -7,18 +7,21 @@ import java.util.Set;
 
 @AllArgsConstructor
 public enum EnumToken implements TokenInterface {
-    START("START", "(", ");"),
-    FIND("find", "SELECT ", " FROM "),
-    ALL("All", " * ", ""),
+    //TODO dla tych co mają FROM, działaniem przed bedzie usunięcie ", " jesli istnieje. pobieramy przed ostatni znak, jesli to przecinek, to usuwamy go z buildera.
+    // //       coś w tym stylu, ewentualnie z palca sprawdzić,  output.lastIndexOf(",");
+    ALL("All", "* ", "",  Set.of(), _ -> {}, _ -> {}),
+    FIND("find", "SELECT ", "FROM ", Set.of(EnumToken.ALL) ,_ -> {}, _ -> {}),
 
-    //Jako flaga. aby mozna było zagnieżdżać zmienne.
-    DYNAMIC_TOKEN("####", "", "");
+    //Jako flaga. aby mozna było zagnieżdżać zmienne np przy select,
+    DYNAMIC_TOKEN("####", "", "", Set.of(), _ -> {}, _ -> {}),
+    START_MARKER("####", "(", ");", Set.of(), _ -> {}, _ -> {});
 
     private final String name;
-    private final String nowGeneratedCode;
+    private String nowGeneratedCode;
     private final String laterGeneratedCode;
-    private final Set<EnumToken> availableNestings = new HashSet<>(); // tak aby można było dodawać dunamiczne
-
+    private final Set<EnumToken> availableNestings;
+    private final ActionInterface actionBefore;
+    private final ActionInterface actionAfter;
 
     @Override
     public EnumToken getType() {
@@ -41,7 +44,14 @@ public enum EnumToken implements TokenInterface {
     }
 
     @Override
-    public void actionBefore(QueryGenerator generator){}
+    public void actionBefore(QueryGenerator generator){
+        actionBefore.action(generator);
+    }
+
+    @Override
+    public void actionAfter(QueryGenerator generator) {
+        actionAfter.action(generator);
+    }
 
     @Override
     public boolean otherCanNested(TokenInterface other) {
