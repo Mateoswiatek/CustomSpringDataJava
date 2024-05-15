@@ -4,7 +4,7 @@ import lombok.Data;
 import org.example.model.tokens.EnumToken;
 import org.example.model.tokens.QueryGenerator;
 import org.example.model.tokens.TokenInterface;
-import org.example.model.tokens.common.DynamicTokenGenerator;
+import org.example.model.tokens.common.TokenGenerator;
 
 import java.util.Set;
 
@@ -23,10 +23,10 @@ import java.util.Set;
 
 @Data
 public class StartToken implements TokenInterface {
-    private String name = "#####";
+    private String name = "FROM";
     private String generateNow = "(";
     private String generateAfter = ")";
-    private Set<TokenInterface> availableNestings = Set.of(EnumToken.FIND);
+    private Set<EnumToken> availableNestings = Set.of(EnumToken.FIND, EnumToken.TABLE_MARKER, EnumToken.DYNAMIC_TOKEN);
 
     @Override
     public EnumToken getType() {
@@ -41,7 +41,7 @@ public class StartToken implements TokenInterface {
     @Override
     public void actionBefore(QueryGenerator generator) {
         //Dodanie wszystkich dynamicznych tokenów z tej bazy danych.
-        var tokens = DynamicTokenGenerator.getTokens(generator.getEntityClass());
+        var tokens = TokenGenerator.getTokens(generator.getEntityClass());
         generator.getTokens().putAll(tokens);
     }
 
@@ -62,7 +62,8 @@ public class StartToken implements TokenInterface {
     }
 
     @Override
-    public boolean otherCanNested(TokenInterface other) {
-        return availableNestings.contains(other.getType());
+    public boolean otherCanNested(EnumToken other) {
+//        return availableNestings.contains(other);
+        return true;
     }
 }

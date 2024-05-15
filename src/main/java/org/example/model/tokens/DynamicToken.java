@@ -40,7 +40,7 @@ public class DynamicToken implements TokenInterface{
     }
 
     @Override
-    public boolean otherCanNested(TokenInterface other) {
-        return availableNestings.contains(other.getType());
+    public boolean otherCanNested(EnumToken other) {
+        return availableNestings.contains(other);
     }
 }

@@ -3,7 +3,8 @@ package org.example.model.tokens;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.model.tokens.token.FindToken;
+import org.example.model.tokens.common.TokenGenerator;
+import org.example.model.tokens.token.TableToken;
 
 import java.lang.reflect.Method;
 import java.util.*;
@@ -20,41 +21,36 @@ public class QueryGenerator {
     Class entityClass;
     Map<String, TokenInterface> tokens = new HashMap<>();
     Stack<TokenInterface> openedTokens = new Stack<>();
-    Map<String, Class<?>> myEntities;
+    Stack<String> tableNames = new Stack<>();
     StringBuilder output = new StringBuilder();
 
     // bo nie przy każdym repo będzie potrzeba,dopiero. gdy będzie From - w tedy dopiero ładujemy,
     // i dodajemy nazwy klas do Tokenów.przy "wychodzeniu" z tokenu, bedziemy usuwać te wartości z tokens.
     // tak aby tlyko w obrębie danego podzapytania można było używać.
-    public void setMyEntities(Map<String, Class<?>> myEntities) {
-        if(myEntities == null) {
-            this.myEntities = myEntities;
-        }
-    }
 
     public QueryGenerator(Class entityClass) {
-        tokens.putAll(Arrays.stream(EnumToken.values()).collect(Collectors.toMap(TokenInterface::getName, x -> x, (x1, _) -> x1)));
+//        tokens.putAll(Arrays.stream(EnumToken.values()).collect(Collectors.toMap(TokenInterface::getName, x -> x, (x1, x2) -> x1)));
+        tokens.putAll(TokenGenerator.getSqlTokens());
         this.entityClass = entityClass;
     }
 
 
     public String processMethod(Method method) {
-        chars = method.getName();
+        chars = "FROM" + entityClass.getSimpleName() + method.getName();
+
+        log.info("chars: #" + chars + "#");
         //TODO ogarnąć, co lepiej, czy przetwarzac, czy tylko dodac, chyba lepiej przetworzyć. bo w tedy wygenerujemy i tez dodamy.
 
-        // inicjalizacja startu
-        FindToken startToken = new FindToken();
-
-        openedTokens.push(startToken);
-        startToken.actionBefore(this);
-        output.append(startToken.generateNow());
-
-//        tokens.entrySet().stream().forEach(x -> {
-//            log.info(x.getKey());
-//            log.info(x.getValue().generateNow());
-//        });
-
-        log.info("rozmiar to " + openedTokens.size());
+//        StartToken startToken = new StartToken();
+//
+//        // inicjalizacja startu
+//        FindToken find = new FindToken();
+//
+//        openedTokens.push(find);
+//        find.actionBefore(this);
+//        output.append(find.generateNow());
+//
+//        log.info("rozmiar to " + openedTokens.size());
         while(!chars.isEmpty()){
             TokenInterface token = this.getToken();
             this.processToken(token);
@@ -72,7 +68,17 @@ public class QueryGenerator {
 //        return "SELECT * FROM TABLE NazwaTabeli123; // wygenerowano z nazwy=" + method.getName();
     }
     public TokenInterface getToken() {
-        Set<String> keys = tokens.keySet();
+
+        Set<String> keys;
+        boolean table = false;
+        // poczatek albo zagniezdzone
+        if(!openedTokens.isEmpty() && openedTokens.peek().getType().equals(EnumToken.START_MARKER)){
+            keys = TokenGenerator.getTableNames();
+            table = true;
+        } else {
+            keys = tokens.keySet();
+        }
+
         List<Character> prefix = new ArrayList<>(){
             @Override
             public String toString() {
@@ -83,6 +89,9 @@ public class QueryGenerator {
         for(int i =0; i<chars.length(); i++) {
             prefix.add(chars.charAt(i));
 
+            log.info("Prefix: " + prefix);
+
+
             // tylko te, które zaczynają się od prefixku.
             // findMyName oraz find, to weźmieny findMyName, bo aż do find będa 2 elementy. a gdy bedzie findM będzie już jeden,
             keys = keys.stream().filter(x -> x.startsWith(prefix.toString())).collect(Collectors.toSet());
@@ -91,6 +100,14 @@ public class QueryGenerator {
             if(keys.size() == 1) {
                 String key = keys.iterator().next();
                 chars = chars.substring(key.length()); // usunięcie przetworzonego fragmentu.
+
+                if(table) {
+                    tableNames.push(key);
+                    var tableToken = new TableToken();
+                    tableToken.setTableName(key);
+                    return tableToken;
+                }
+
                 return tokens.get(key);
             }
         }
@@ -115,7 +132,11 @@ public class QueryGenerator {
 
         // zamykanie wszystkich poprzednich, w których nowy nie może być
 
-        while(!openedTokens.isEmpty() && !openedTokens.peek().otherCanNested(token)) {
+        log.info(output.toString());
+//        log.info(openedTokens.peek().getName());
+        log.info("" + token.getType());
+
+        while(!openedTokens.isEmpty() && !openedTokens.peek().otherCanNested(token.getType())) {
             var openedToken = openedTokens.pop();
             openedToken.actionAfter(this);
             output.append(openedToken.generateAfter());

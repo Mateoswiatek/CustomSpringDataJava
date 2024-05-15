@@ -7,5 +7,5 @@ public interface TokenInterface {
     void actionAfter(QueryGenerator generator); //tu bedzie np usuwanie tokenów dynamicznych, bo wyszliśmy z zakresu
     String generateNow();
     String generateAfter();
-    boolean otherCanNested(TokenInterface other);
+    boolean otherCanNested(EnumToken other);
 }

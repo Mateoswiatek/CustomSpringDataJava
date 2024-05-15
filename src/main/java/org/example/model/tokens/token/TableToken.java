@@ -4,7 +4,7 @@ import lombok.Data;
 import org.example.model.tokens.EnumToken;
 import org.example.model.tokens.QueryGenerator;
 import org.example.model.tokens.TokenInterface;
-import org.example.model.tokens.common.DynamicTokenGenerator;
+import org.example.model.tokens.common.TokenGenerator;
 
 import java.util.Set;
 
@@ -12,15 +12,16 @@ import java.util.Set;
 // tak aby wiedziało co ma dać do FROM. dlatego w before, tak aby w sytuacji zagnieżdżeń, nie stracić tego?
 // w tedy chyba actionAfter jest useless?
 @Data
-public class FindToken implements TokenInterface {
-    private String name = "#####";
-    private String generateNow = "(";
-    private String generateAfter = ")";
-    private Set<TokenInterface> availableNestings = Set.of(EnumToken.FIND);
+public class TableToken implements TokenInterface {
+    private String name = "marker";
+    private String generateNow = "";
+    private String generateAfter = "FROM ";
+    private String tableName;
+    private Set<EnumToken> availableNestings = Set.of(EnumToken.FIND);
 
     @Override
     public EnumToken getType() {
-        return EnumToken.START_MARKER;
+        return EnumToken.TABLE_MARKER;
     }
 
     @Override
@@ -30,13 +31,17 @@ public class FindToken implements TokenInterface {
 
     @Override
     public void actionBefore(QueryGenerator generator) {
-        //Dodanie wszystkich dynamicznych tokenów z tej bazy danych.
-        var tokens = DynamicTokenGenerator.getTokens(generator.getEntityClass());
-        generator.getTokens().putAll(tokens);
     }
 
     @Override
     public void actionAfter(QueryGenerator generator) {
+        // usuwanie ewenutalnego ostatniego przecinka.
+
+        var builder = generator.getOutput();
+        var length = generator.getOutput().length();
+        if (length >= 2 && generator.getOutput().charAt(length - 2) == ',') {
+            builder.deleteCharAt(length - 2);
+        }
 
     }
 
@@ -48,11 +53,12 @@ public class FindToken implements TokenInterface {
 
     @Override
     public String generateAfter() {
-        return generateAfter;
+        return generateAfter + TokenGenerator.getDatabaseTableNameFromClassName(tableName);
     }
 
     @Override
-    public boolean otherCanNested(TokenInterface other) {
-        return availableNestings.contains(other.getType());
+    public boolean otherCanNested(EnumToken other) {
+//        return true;
+        return availableNestings.contains(other);
     }
 }

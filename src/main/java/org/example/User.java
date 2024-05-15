@@ -5,7 +5,7 @@ import org.example.model.adnotations.databasecreator.DatabaseField;
 import org.example.model.adnotations.databasecreator.DatabaseTable;
 
 @Data
-@DatabaseTable(tableName = "user", keyColumn = "id")
+@DatabaseTable(tableName = "user_pif_paf", keyColumn = "id")
 public class User {
     @DatabaseField(columnName = "id")
     private Long id;
