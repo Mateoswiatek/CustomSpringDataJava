@@ -1,18 +1,15 @@
 package org.example.model.tokens;
 
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.model.tokens.token.StartToken;
+import org.example.model.tokens.token.FindToken;
 
 import java.lang.reflect.Method;
 import java.util.*;
 
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-
-import static java.lang.StringTemplate.STR;
 
 @Data
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -22,7 +19,7 @@ public class QueryGenerator {
     String chars = null;
     Class entityClass;
     Map<String, TokenInterface> tokens = new HashMap<>();
-    Queue<TokenInterface> openedTokens = new LinkedList<>();
+    Stack<TokenInterface> openedTokens = new Stack<>();
     Map<String, Class<?>> myEntities;
     StringBuilder output = new StringBuilder();
 
@@ -46,59 +43,58 @@ public class QueryGenerator {
         //TODO ogarnąć, co lepiej, czy przetwarzac, czy tylko dodac, chyba lepiej przetworzyć. bo w tedy wygenerujemy i tez dodamy.
 
         // inicjalizacja startu
-        StartToken startToken = new StartToken();
+        FindToken startToken = new FindToken();
 
-        openedTokens.add(startToken);
+        openedTokens.push(startToken);
         startToken.actionBefore(this);
         output.append(startToken.generateNow());
 
-//        log.info("Liczba tokenow to:" + tokens.size());
-        tokens.entrySet().stream().forEach(x -> {
-            log.info(x.getKey());
-            log.info(x.getValue().generateNow());
-        });
+//        tokens.entrySet().stream().forEach(x -> {
+//            log.info(x.getKey());
+//            log.info(x.getValue().generateNow());
+//        });
 
-        log.info("" + openedTokens.size());
+        log.info("rozmiar to " + openedTokens.size());
         while(!chars.isEmpty()){
             TokenInterface token = this.getToken();
-            System.out.println(token.generateNow());
-//            this.processToken(token);
+            this.processToken(token);
         }
 
         //Domykanie wszystkich otwartych tokenów
         while(!openedTokens.isEmpty()){
-            var oToken = openedTokens.poll();
+            var oToken = openedTokens.pop();
             oToken.actionAfter(this);
             output.append(oToken.generateAfter());
 
         }
 
-        return output.toString();
+        return output.append(";").toString();
 //        return "SELECT * FROM TABLE NazwaTabeli123; // wygenerowano z nazwy=" + method.getName();
     }
     public TokenInterface getToken() {
         Set<String> keys = tokens.keySet();
-        StringBuilder prefix = new StringBuilder();
-        for(int i =0; i<chars.length(); i++) {
-            prefix.append(chars.charAt(i));
+        List<Character> prefix = new ArrayList<>(){
+            @Override
+            public String toString() {
+                return this.stream().map(Object::toString).collect(Collectors.joining());
+            }
+        };
 
-            log.info(prefix.toString());
+        for(int i =0; i<chars.length(); i++) {
+            prefix.add(chars.charAt(i));
 
             // tylko te, które zaczynają się od prefixku.
             // findMyName oraz find, to weźmieny findMyName, bo aż do find będa 2 elementy. a gdy bedzie findM będzie już jeden,
             keys = keys.stream().filter(x -> x.startsWith(prefix.toString())).collect(Collectors.toSet());
-            switch(keys.size()) {
-                case 0 -> throw new RuntimeException(STR."błąd kompilacji dla \{keys}");
-                case 1 -> { // zwracamy tego najdłuższego.
-                    String key = keys.iterator().next();
-                    chars = chars.substring(prefix.length()); // usunięcie przetworzonego fragmentu.
-//                    token = tokens.get(key);
-                    return tokens.get(key);
-                }
+            //TODO więcesz szczegolow przy nie rozpoznaniu!
+            if(keys.isEmpty()) { throw new RuntimeException("nie rozpoznano znaku!"); }
+            if(keys.size() == 1) {
+                String key = keys.iterator().next();
+                chars = chars.substring(key.length()); // usunięcie przetworzonego fragmentu.
+                return tokens.get(key);
             }
         }
         throw new RuntimeException("cos nie tak poszło!");
-
 
         //TODO oooooooo!!!! na początku wgl generacji, czyli przy starcie, np jako pole statyczne, tego generatora,
         // dodajemy hasheta. String Token. String to nazwa tokenu, token to token.
@@ -112,14 +108,22 @@ public class QueryGenerator {
         token.actionBefore(this);
         output.append(token.generateNow());
 
+
+//        log.info("element to " + openedTokens.peek());
+//        log.info("rozmiar to " + openedTokens.size());
+//        log.info(token.generateNow());
+
         // zamykanie wszystkich poprzednich, w których nowy nie może być
-        while(!openedTokens.peek().otherCanNested(token)) {
-            var openedToken = openedTokens.poll();
+
+        while(!openedTokens.isEmpty() && !openedTokens.peek().otherCanNested(token)) {
+            var openedToken = openedTokens.pop();
             openedToken.actionAfter(this);
             output.append(openedToken.generateAfter());
         }
 
-        openedTokens.add(token);
+        openedTokens.push(token);
+        log.info("rozmiar to " + openedTokens.size());
+        log.info("Dodalismy " + token.getName());
     }
 
 

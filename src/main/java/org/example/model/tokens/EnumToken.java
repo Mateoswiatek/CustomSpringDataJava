@@ -55,6 +55,8 @@ public enum EnumToken implements TokenInterface {
 
     @Override
     public boolean otherCanNested(TokenInterface other) {
+//        System.out.println("mamy" + this.getType() + " i pytamy sie o " + other.getType());
+//        System.out.println(availableNestings.contains(other.getType()));
         return availableNestings.contains(other.getType());
     }
 }

@@ -8,21 +8,11 @@ import org.example.model.tokens.common.DynamicTokenGenerator;
 
 import java.util.Set;
 
-//todo
-// ze stosu nazw tabel.
-// jakies tokeny do tworzenia podzapytan będą miały w generate after usunięcie ostatniego elementu z tego stosu nazw tabel.
-// i tez podzapytania mają generować sobie nawiasy. albo wgl, wydzielić StartToken też jako zwyły token, którego można uzywac do tworzenia
-// podzapytań.
-// w tedy w After jest zdejmowanie ze stosu nazwy tej tabeli.
-// wgl, tworzymy sobie
-// specjalny token który daje nam dostęp do nazw metod z wyższegp zapytania. jeśli np IdEqualsUpIdAnd to oznacza, że tabela_a.id=tabela_b.id
-// w tedy, aby nie generować problemów, należy zrobić w tym Up, jako actionAfter, trzeba zrobić powrót do pierwotnej - czyli usunięcie tych tokenów.
-// albo aby tak nie robić. zrobić Mapę gdzie kluczem będzie nazwa klasy, a wartościami będą mapy tokenów. cos w tym stylu
-
-//4:22 nie pozdrawia XD
-
+//todo dorobić to, zmienić faktycznie na find tokena wygenerować w action before tak aby pobierało sobie nazwę klaski
+// tak aby wiedziało co ma dać do FROM. dlatego w before, tak aby w sytuacji zagnieżdżeń, nie stracić tego?
+// w tedy chyba actionAfter jest useless?
 @Data
-public class StartToken implements TokenInterface {
+public class FindToken implements TokenInterface {
     private String name = "#####";
     private String generateNow = "(";
     private String generateAfter = ")";
