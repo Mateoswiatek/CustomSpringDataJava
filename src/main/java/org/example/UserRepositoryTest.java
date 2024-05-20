@@ -8,4 +8,5 @@ public interface UserRepositoryTest extends AbstractRepository<User, Long> {
     void findnamesurnameage(String s, Long l);
     void findAll();
     void countAllname();
+    void countAllUPname();
 }

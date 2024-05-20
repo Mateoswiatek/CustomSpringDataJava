@@ -17,7 +17,8 @@ public class TableToken implements TokenInterface {
     private String generateNow = "";
     private String generateAfter = "FROM ";
     private String tableName;
-    private Set<EnumToken> availableNestings = Set.of(EnumToken.FIND, EnumToken.COUNT, EnumToken.DYNAMIC_TOKEN);
+    private Set<EnumToken> availableNestings = Set.of(EnumToken.ALL_ENTITY, EnumToken.FIND, EnumToken.COUNT, EnumToken.DYNAMIC_TOKEN);
+    private QueryGenerator queryGenerator;
 
     @Override
     public EnumToken getType() {
@@ -31,19 +32,9 @@ public class TableToken implements TokenInterface {
 
     @Override
     public void actionBefore(QueryGenerator generator) {
+        queryGenerator = generator;
     }
 
-    @Override
-    public void actionAfter(QueryGenerator generator) {
-        // usuwanie ewenutalnego ostatniego przecinka.
-
-        var builder = generator.getOutput();
-        var length = generator.getOutput().length();
-        if (length >= 2 && generator.getOutput().charAt(length - 2) == ',') {
-            builder.deleteCharAt(length - 2);
-        }
-
-    }
 
     @Override
     public String generateNow() {
@@ -53,6 +44,14 @@ public class TableToken implements TokenInterface {
 
     @Override
     public String generateAfter() {
+        // usuwanie ewenutalnego ostatniego przecinka.
+        var builder = queryGenerator.getOutput();
+        var length = queryGenerator.getOutput().length();
+        if (length >= 2 && queryGenerator.getOutput().charAt(length - 2) == ',') {
+            builder.deleteCharAt(length - 2);
+        }
+
+
         return generateAfter + TokenGenerator.getDatabaseTableNameFromClassName(tableName);
     }
 

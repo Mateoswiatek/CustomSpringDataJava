@@ -46,11 +46,6 @@ public class StartToken implements TokenInterface {
     }
 
     @Override
-    public void actionAfter(QueryGenerator generator) {
-
-    }
-
-    @Override
     public String generateNow() {
         return generateNow;
     }

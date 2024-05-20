@@ -77,9 +77,6 @@ public class TokenGenerator {
                     public void actionBefore(QueryGenerator generator) {}
 
                     @Override
-                    public void actionAfter(QueryGenerator generator) {}
-
-                    @Override
                     public String generateNow() {
                        return "";
                     }
@@ -105,9 +102,10 @@ public class TokenGenerator {
     public static Map<String, TokenInterface> getSqlTokens() {
         var list = List.of(
                 new StartToken(),
-                new SqlToken(EnumToken.FIND, "find", "SELECT ", "", Set.of(EnumToken.DYNAMIC_TOKEN)),
+                new SqlToken(EnumToken.UP, "UP", "", "", Set.of()),
+                new SqlToken(EnumToken.FIND, "find", "SELECT ", "", Set.of()),
                 new SqlToken(EnumToken.ALL_ENTITY, "All", "* ", "", Set.of()),
-                new SqlToken(EnumToken.COUNT, "count", "SELECT COUNT( ", "), ", Set.of(EnumToken.ALL_ENTITY)) // dodać to razem z jakimś UP które wychodzi. EnumToken.DYNAMIC_TOKEN
+                new SqlToken(EnumToken.COUNT, "count", "SELECT COUNT( ", "), ", Set.of(EnumToken.ALL_ENTITY, EnumToken.DYNAMIC_TOKEN, EnumToken.UP)) // dodać to razem z jakimś UP które wychodzi. EnumToken.DYNAMIC_TOKEN
 
         );
         return list.stream().collect(Collectors.toMap(TokenInterface::getName, x -> x, (x1, x2) -> x1));

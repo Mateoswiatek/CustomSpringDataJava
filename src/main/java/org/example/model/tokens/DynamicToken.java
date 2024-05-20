@@ -25,11 +25,6 @@ public class DynamicToken implements TokenInterface{
     public void actionBefore(QueryGenerator generator) {}
 
     @Override
-    public void actionAfter(QueryGenerator generator) {
-
-    }
-
-    @Override
     public String generateNow() {
         return nowGeneratedCode;
     }

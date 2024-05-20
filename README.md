@@ -18,13 +18,12 @@ nie sprawdza w 100% poprawności, niby możesz wygenerować find i count w jedny
 
 
 
-każdy token ma cztery zasadnicze metody w koklejności wykonywania:
+każdy token ma trzy zasadnicze metody w koklejności wykonywania:
 actionBefore(QueryGenerator generator);
 String generateNow();
 
 x - zagnieżdżenia
 
-void actionAfter(QueryGenerator generator);
 String generateAfter();
 
 dzięki action można w dowolny sposób przeanalizować już wygenerowane zapytanie / dokonać niezbędnych czynności.
@@ -32,6 +31,7 @@ np:
 - dodawanie dynamicznych tokenów
 - usuwanie nadmiarowego przecinka
 
+Jeśli nie ma zagnieżdżeń, generateAfter() powinno zwracać "".
 
 TOKEN -> #generowany tekst#
 Token(ENUM w kodzie)
@@ -49,11 +49,15 @@ FROM -> #(x)#
             ALL(ALL_ENTITY) -> #* #
         count(COUNT) -> #SELECT COUNT( x), #
             All(ALL_ENTITY) -> #* #
-            UP() -> dorobić. to będzie odpowiedzialne, za skończenie tego counta, tak aby mozna było dalej wpisywać encje
-        nazwaPolaWKlasieEncjiDYNAMIC_TOKEN -> ... - po to, aby dla np Counta, można było przeplatać count i kolumny
+            nazwaPolaWKlasieEncji(DYNAMIC_TOKEN)
+            UP(UP) -> wychodzi o jeden poziom z zagnieżdżenia do góry. - terminuje aktualnie otwarty token.
+        nazwaPolaWKlasieEncji(DYNAMIC_TOKEN) -> ... - po to, aby dla np Counta, można było przeplatać count i kolumny
 
 
 W dynamicznych jest GenerateAfter, bo najpierw powinniśmy sprawdzić czy może się zagnieżdżać ???
+
+
+metody do zagnieżdżania zawsze można nadpisać tworząc dany token, więc z tym nie ma problemu, podobnie z innymi rzeczami.
 
 Konwencja nazewnicza:
 z dokumentacji ;)

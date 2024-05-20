@@ -59,7 +59,7 @@ public class QueryGenerator {
         //Domykanie wszystkich otwartych tokenów
         while(!openedTokens.isEmpty()){
             var oToken = openedTokens.pop();
-            oToken.actionAfter(this);
+//            oToken.actionAfter(this);
             output.append(oToken.generateAfter());
 
         }
@@ -97,8 +97,8 @@ public class QueryGenerator {
             // tylko te, które zaczynają się od prefixku.
             // findMyName oraz find, to weźmieny findMyName, bo aż do find będa 2 elementy. a gdy bedzie findM będzie już jeden,
             keys = keys.stream().filter(x -> x.startsWith(prefix.toString())).collect(Collectors.toSet());
-            //TODO więcesz szczegolow przy nie rozpoznaniu!
-            if(keys.isEmpty()) { throw new RuntimeException("nie rozpoznano znaku!"); }
+            //TODO więcesz szczegolow przy nie rozpoznaniu ?
+            if(keys.isEmpty()) { throw new RuntimeException("nie rozpoznano ciągu: " + prefix.toString()); }
             if(keys.size() == 1) {
                 String key = keys.iterator().next();
                 chars = chars.substring(key.length()); // usunięcie przetworzonego fragmentu.
@@ -114,44 +114,35 @@ public class QueryGenerator {
             }
         }
         throw new RuntimeException("cos nie tak poszło!");
-
-        //TODO oooooooo!!!! na początku wgl generacji, czyli przy starcie, np jako pole statyczne, tego generatora,
-        // dodajemy hasheta. String Token. String to nazwa tokenu, token to token.
-        // gdy nie znajdujemy, to czekamy na dopaowanie do nazwy metody, jeśli jest dopasowanie, to
-        // tworzymy token dla tej nazwy, i dodajemy go do tej mapy, tak aby w sytuacji kiedy ktoś będzie chciał skorzystsać to możemy to zrobić.
-        // Albo wgl, każda encja będzie miała swój zbiór tokenów. gdzie będzie mapowanie nazwy pola na nazwę w bazie danych.
-        // w tedy wystarcy znajomość encji i mamy już wzystko co potrzeba. nie mamy zabawy w dynamiczne programowanie. ale jet wydajniej i ładniej.
     }
 
     public void processToken(TokenInterface token) {
-        token.actionBefore(this);
-        output.append(token.generateNow());
+        //Gdy jest up, to domykamy aktualnie otwarty token.
+        if(token.getType().equals(EnumToken.UP)) {
+            var opemToken = openedTokens.pop();
+            output.append(opemToken.generateAfter());
+            return;
+        }
 
-
-//        log.info("element to " + openedTokens.peek());
-//        log.info("rozmiar to " + openedTokens.size());
-//        log.info(token.generateNow());
-
+        // normalne tokeny:
         // zamykanie wszystkich poprzednich, w których nowy nie może być
-
-        log.info(output.toString());
-//        log.info(openedTokens.peek().getName());
-        log.info("" + token.getType());
-
         while(!openedTokens.isEmpty() && !openedTokens.peek().otherCanNested(token.getType())) {
             var openedToken = openedTokens.pop();
-            openedToken.actionAfter(this);
             output.append(openedToken.generateAfter());
         }
 
+        token.actionBefore(this);
+        output.append(token.generateNow());
+
+        log.info(output.toString());
+        log.info("" + token.getType());
+
         //jeśli może się zagnieżdżać, to dodajemy aktualny token na stos, nie generując końcówki.
-        openedTokens.push(token);
+        if(token.generateAfter() != ""){
+            openedTokens.push(token);
+        }
+
         log.info("rozmiar to " + openedTokens.size());
         log.info("Dodalismy " + token.getName());
-    }
-
-
-    public String test(Method method) {
-        return "SELECT * FROM TABLE NazwaTabeli123; // wygenerowano z nazwy=" + method.getName();
     }
 }
