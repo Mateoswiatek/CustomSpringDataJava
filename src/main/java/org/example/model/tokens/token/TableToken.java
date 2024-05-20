@@ -17,7 +17,7 @@ public class TableToken implements TokenInterface {
     private String generateNow = "";
     private String generateAfter = "FROM ";
     private String tableName;
-    private Set<EnumToken> availableNestings = Set.of(EnumToken.FIND);
+    private Set<EnumToken> availableNestings = Set.of(EnumToken.FIND, EnumToken.COUNT, EnumToken.DYNAMIC_TOKEN);
 
     @Override
     public EnumToken getType() {

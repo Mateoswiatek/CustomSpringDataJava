@@ -64,7 +64,9 @@ public class QueryGenerator {
 
         }
 
-        return output.append(";").toString();
+        var out = output.append(";").toString();
+        output.setLength(0);
+        return out;
 //        return "SELECT * FROM TABLE NazwaTabeli123; // wygenerowano z nazwy=" + method.getName();
     }
     public TokenInterface getToken() {
@@ -142,6 +144,7 @@ public class QueryGenerator {
             output.append(openedToken.generateAfter());
         }
 
+        //jeśli może się zagnieżdżać, to dodajemy aktualny token na stos, nie generując końcówki.
         openedTokens.push(token);
         log.info("rozmiar to " + openedTokens.size());
         log.info("Dodalismy " + token.getName());

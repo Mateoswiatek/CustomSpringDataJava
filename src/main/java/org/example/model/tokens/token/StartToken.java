@@ -26,7 +26,7 @@ public class StartToken implements TokenInterface {
     private String name = "FROM";
     private String generateNow = "(";
     private String generateAfter = ")";
-    private Set<EnumToken> availableNestings = Set.of(EnumToken.FIND, EnumToken.TABLE_MARKER, EnumToken.DYNAMIC_TOKEN);
+    private Set<EnumToken> availableNestings = Set.of(EnumToken.FIND, EnumToken.TABLE_MARKER);
 
     @Override
     public EnumToken getType() {

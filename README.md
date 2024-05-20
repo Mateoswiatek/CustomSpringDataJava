@@ -14,10 +14,46 @@ Sprawdzamy, czy faktycznie klasa ma adnotację, jeśli tak,
 sprawdzamy czy mamy już encję w naszym programie, jeśli tak, to po prostu tworzymy,
 jeśli nie mieliśmy, najpierw tworzymy naszą Encję w programie. (addEntity)
 
-Dla konkretnej klasy tworzymy obiekt EntityProperties, który przechowuje wszystkie parametry "bazodanowe" reprezentacji
-tej klasy w bazie danych.
+nie sprawdza w 100% poprawności, niby możesz wygenerować find i count w jednym zapytaniu. aby to ominąc trzeba by mocno kombinować.
 
-Jak na razie to tyle ;)
+
+
+każdy token ma cztery zasadnicze metody w koklejności wykonywania:
+actionBefore(QueryGenerator generator);
+String generateNow();
+
+x - zagnieżdżenia
+
+void actionAfter(QueryGenerator generator);
+String generateAfter();
+
+dzięki action można w dowolny sposób przeanalizować już wygenerowane zapytanie / dokonać niezbędnych czynności.
+np:
+- dodawanie dynamicznych tokenów
+- usuwanie nadmiarowego przecinka
+
+
+TOKEN -> #generowany tekst#
+Token(ENUM w kodzie)
+
+x - miejsce kolejnych zagnieżdżeń.
+
+token
+    możliwy zagnieżdżony token <br>
+
+\# -> #x;#
+FROM -> #(x)#
+    nazwaKlasyEncji(TABLETOKEN) -> #xFROM nazwa_tabeli_encji_w_bazie_danych#
+        find(FIND) -> #SELECT x#
+            nazwaPolaWKlasieEncji(DYNAMIC_TOKEN) -> #nazwa_tabeli_encji_w_bazie_danych.nazwa_kolumny_w_bazie_danych, #
+            ALL(ALL_ENTITY) -> #* #
+        count(COUNT) -> #SELECT COUNT( x), #
+            All(ALL_ENTITY) -> #* #
+            UP() -> dorobić. to będzie odpowiedzialne, za skończenie tego counta, tak aby mozna było dalej wpisywać encje
+        nazwaPolaWKlasieEncjiDYNAMIC_TOKEN -> ... - po to, aby dla np Counta, można było przeplatać count i kolumny
+
+
+W dynamicznych jest GenerateAfter, bo najpierw powinniśmy sprawdzić czy może się zagnieżdżać ???
 
 Konwencja nazewnicza:
 z dokumentacji ;)

@@ -81,12 +81,12 @@ public class TokenGenerator {
 
                     @Override
                     public String generateNow() {
-                        return tableName + "." + x.getAnnotation(DatabaseField.class).columnName() + ", ";
+                       return "";
                     }
 
                     @Override
                     public String generateAfter() {
-                        return "";
+                        return tableName + "." + x.getAnnotation(DatabaseField.class).columnName() + ", ";
                     }
 
                     @Override
@@ -106,7 +106,8 @@ public class TokenGenerator {
         var list = List.of(
                 new StartToken(),
                 new SqlToken(EnumToken.FIND, "find", "SELECT ", "", Set.of(EnumToken.DYNAMIC_TOKEN)),
-                new SqlToken(EnumToken.ALL_ENTITY, "All", "* ", "", Set.of(EnumToken.DYNAMIC_TOKEN))
+                new SqlToken(EnumToken.ALL_ENTITY, "All", "* ", "", Set.of()),
+                new SqlToken(EnumToken.COUNT, "count", "SELECT COUNT( ", "), ", Set.of(EnumToken.ALL_ENTITY)) // dodać to razem z jakimś UP które wychodzi. EnumToken.DYNAMIC_TOKEN
 
         );
         return list.stream().collect(Collectors.toMap(TokenInterface::getName, x -> x, (x1, x2) -> x1));

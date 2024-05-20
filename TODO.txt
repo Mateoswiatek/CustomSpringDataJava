@@ -1,3 +1,11 @@
+Warunki nie mogą być znestowane w TABLE Marker.
+bo TABLE MARKER generuje
+
+
+
+
+
+
 Zabezpieczenia przed niepoprawnymi nazwami - strim prawo lewo, spacje na _, wywalenie nielegalnych znaków + tolower
 
 Jednak przyda się mapowanie również nazw Pól na nazwy kolumn - np przy dodawaniu rekordów.
