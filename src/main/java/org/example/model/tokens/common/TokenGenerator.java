@@ -105,8 +105,15 @@ public class TokenGenerator {
                 new SqlToken(EnumToken.UP, "UP", "", "", Set.of()),
                 new SqlToken(EnumToken.FIND, "find", "SELECT ", "", Set.of()),
                 new SqlToken(EnumToken.ALL_ENTITY, "All", "* ", "", Set.of()),
-                new SqlToken(EnumToken.COUNT, "count", "SELECT COUNT( ", "), ", Set.of(EnumToken.ALL_ENTITY, EnumToken.DYNAMIC_TOKEN, EnumToken.UP)) // dodać to razem z jakimś UP które wychodzi. EnumToken.DYNAMIC_TOKEN
+                new SqlToken(EnumToken.COUNT, "count", "SELECT COUNT( ", "), ", Set.of(EnumToken.ALL_ENTITY, EnumToken.DYNAMIC_TOKEN, EnumToken.UP)), // dodać to razem z jakimś UP które wychodzi. EnumToken.DYNAMIC_TOKEN
 
+                //uzupełnić o operatory, nie zapominać o argumentach. wydzielić operatory logiczne?
+                // zrobić, że tak naprawdę się zagnieżdżają logiczne opearatory, a logiczne operatory w sobie mogą zagnieżdżać DYNAMICe
+                // where( (x = ?) and / or (y = ?) i takie coś mamy generować, może bez nawiasów, ale zawsze coś.
+
+                //przetestwać FROM.
+
+                new SqlToken(EnumToken.WHERE, "where", "WHERE ", " ", Set.of(EnumToken.DYNAMIC_TOKEN))
         );
         return list.stream().collect(Collectors.toMap(TokenInterface::getName, x -> x, (x1, x2) -> x1));
     }

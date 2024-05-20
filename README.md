@@ -44,6 +44,7 @@ token
 \# -> #x;#
 FROM -> #(x)#
     nazwaKlasyEncji(TABLETOKEN) -> #xFROM nazwa_tabeli_encji_w_bazie_danych#
+        FROM -> #(x)# - zagnieżdżenia
         find(FIND) -> #SELECT x#
             nazwaPolaWKlasieEncji(DYNAMIC_TOKEN) -> #nazwa_tabeli_encji_w_bazie_danych.nazwa_kolumny_w_bazie_danych, #
             ALL(ALL_ENTITY) -> #* #
@@ -59,10 +60,16 @@ W dynamicznych jest GenerateAfter, bo najpierw powinniśmy sprawdzić czy może 
 
 metody do zagnieżdżania zawsze można nadpisać tworząc dany token, więc z tym nie ma problemu, podobnie z innymi rzeczami.
 
-Konwencja nazewnicza:
-z dokumentacji ;)
 https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html
 
+dodać:
+- Where
+- Distinct
+- Distinct On
+- Joina
+- Insert
+- Delete
+- Update
 
 |       SQL       |   Code   |
 |:---------------:|:--------:|

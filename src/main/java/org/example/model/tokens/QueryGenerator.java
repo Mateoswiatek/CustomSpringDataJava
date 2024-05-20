@@ -38,6 +38,8 @@ public class QueryGenerator {
     public String processMethod(Method method) {
         chars = "FROM" + entityClass.getSimpleName() + method.getName();
 
+        //todo zrobić, aby najpierw sprawdzało, czy metoda zaczyna się od FROM i wgl.
+
         log.info("chars: #" + chars + "#");
         //TODO ogarnąć, co lepiej, czy przetwarzac, czy tylko dodac, chyba lepiej przetworzyć. bo w tedy wygenerujemy i tez dodamy.
 

@@ -16,6 +16,7 @@ public enum EnumToken {
     TABLE_MARKER("przypisanie odpowiedniej tabeli"),
     COUNT("zliczanie"),
     UP("wyjście do góry"),
+    WHERE("warunki logiczne"),
     NONE("nic");
 
     private String opis;

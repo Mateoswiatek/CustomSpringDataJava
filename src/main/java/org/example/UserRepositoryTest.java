@@ -9,4 +9,6 @@ public interface UserRepositoryTest extends AbstractRepository<User, Long> {
     void findAll();
     void countAllname();
     void countAllUPname();
+    void FROMAddressfindAll();
+    void findnamesurnameFROMAddressfindALL();
 }

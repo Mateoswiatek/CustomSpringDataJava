@@ -25,7 +25,7 @@ import java.util.Set;
 public class StartToken implements TokenInterface {
     private String name = "FROM";
     private String generateNow = "(";
-    private String generateAfter = ")";
+    private String generateAfter = ") ";
     private Set<EnumToken> availableNestings = Set.of(EnumToken.FIND, EnumToken.TABLE_MARKER);
 
     @Override
