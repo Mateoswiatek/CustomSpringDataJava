@@ -13,6 +13,7 @@ public class User {
     private String name;
     @DatabaseField(columnName = "user_surname", columnType = "VARCHAR(4000)")
     private String surname;
+    @DatabaseField(columnName = "age", columnType = "INTEGER")
     private int age;
     public User(String name, int age) {
         this.name = name;

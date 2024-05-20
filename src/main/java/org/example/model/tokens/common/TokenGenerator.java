@@ -81,12 +81,12 @@ public class TokenGenerator {
 
                     @Override
                     public String generateNow() {
-                        return tableName + "." + x.getAnnotation(DatabaseField.class).columnName();
+                        return tableName + "." + x.getAnnotation(DatabaseField.class).columnName() + ", ";
                     }
 
                     @Override
                     public String generateAfter() {
-                        return ", ";
+                        return "";
                     }
 
                     @Override
@@ -99,7 +99,7 @@ public class TokenGenerator {
 
     //TODO tutaj robimy dynamiczne , ewentualnie zrobić to jako signeton
     public static Set<String> getTableNames() {
-        return Set.of("User", "Event");
+        return Set.of("User", "Address");
     }
 
     public static Map<String, TokenInterface> getSqlTokens() {
