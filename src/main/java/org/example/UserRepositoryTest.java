@@ -7,8 +7,15 @@ import org.example.model.adnotations.databaserepository.RepoAutoImpl;
 public interface UserRepositoryTest extends AbstractRepository<User, Long> {
     void findnamesurnameage(String s, Long l);
     void findAll();
-    void countAllname();
+    void countnamesurname();
     void countAllUPname();
     void FROMAddressfindAll();
-    void findnamesurnameFROMAddressfindALL();
+//    void FROMAddressfindstreet();
+    void findnamesurnameFROMAddressfindAll();
+    void findAllWhere();
+//    void findWhereAll(); // powinien wywalić błąd
+    void findAllWherenameIs();
+    void findAllWherenameIsAnd();
+    void findAllWheresurnameIsOr();
+
 }

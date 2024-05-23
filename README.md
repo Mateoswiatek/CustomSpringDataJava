@@ -53,7 +53,12 @@ FROM -> #(x)#
             nazwaPolaWKlasieEncji(DYNAMIC_TOKEN)
             UP(UP) -> wychodzi o jeden poziom z zagnieżdżenia do góry. - terminuje aktualnie otwarty token.
         nazwaPolaWKlasieEncji(DYNAMIC_TOKEN) -> ... - po to, aby dla np Counta, można było przeplatać count i kolumny
-
+    
+        SUM, AVG, MIN, MAX itp itd - funkcje agregujące.
+    Where(WHERE) -> #WHERE # - określenie warunków, jeśli jest, to musi być po TABLETOKEN
+        LogicOperation
+        LogicConjunctions
+    
 
 W dynamicznych jest GenerateAfter, bo najpierw powinniśmy sprawdzić czy może się zagnieżdżać ???
 

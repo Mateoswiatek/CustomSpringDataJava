@@ -47,12 +47,27 @@ public class TableToken implements TokenInterface {
         // usuwanie ewenutalnego ostatniego przecinka.
         var builder = queryGenerator.getOutput();
         var length = queryGenerator.getOutput().length();
-        if (length >= 2 && queryGenerator.getOutput().charAt(length - 2) == ',') {
-            builder.deleteCharAt(length - 2);
+//        if (length >= 2 && queryGenerator.getOutput().charAt(length - 2) == ',') {
+//            builder.deleteCharAt(length - 2);
+//        }
+
+        // zabezpieczenie przed jakimiś śmieciami. aby nie trzeba było pisać w każdych agregujących.
+        if (length > 0) {
+            // Znalezienie ostatniego nie-spacji znaku
+            int i = length - 1;
+            while (i >= 0 && Character.isWhitespace(builder.charAt(i))) {
+                i--;
+            }
+            // Sprawdzenie, czy poprzedzający znak to przecinek
+            if (i > 0 && builder.charAt(i) == ',' && Character.isWhitespace(builder.charAt(i - 1))) {
+                // Usunięcie przecinka
+                builder.deleteCharAt(i);
+            }
         }
 
 
-        return generateAfter + TokenGenerator.getDatabaseTableNameFromClassName(tableName);
+        return generateAfter + TokenGenerator.getDatabaseTableNameFromClassName(tableName) + " ";
+//        return STR."\{generateAfter}\{TokenGenerator.getDatabaseTableNameFromClassName(tableName)} ";
     }
 
     @Override

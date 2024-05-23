@@ -16,7 +16,9 @@ public enum EnumToken {
     TABLE_MARKER("przypisanie odpowiedniej tabeli"),
     COUNT("zliczanie"),
     UP("wyjście do góry"),
-    WHERE("warunki logiczne"),
+    WHERE("Wybieranie rekordów"),
+    LOGIC_CONJUNCTION("laczniki and, or i inne ?"),
+    LOGIC_OPERATION("logiczne operacje"),
     NONE("nic");
 
     private String opis;

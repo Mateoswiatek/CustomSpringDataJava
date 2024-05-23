@@ -43,6 +43,11 @@ public class StartToken implements TokenInterface {
         //Dodanie wszystkich dynamicznych tokenów z tej bazy danych.
         var tokens = TokenGenerator.getTokens(generator.getEntityClass());
         generator.getTokens().putAll(tokens);
+
+        var processed = generator.getProcessedToken();
+        if(!processed.isEmpty() && processed.getFirst().getType().equals(EnumToken.DYNAMIC_TOKEN)) {
+            generator.getOutput().append(", ");
+        }
     }
 
     @Override
